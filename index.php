@@ -8,5 +8,6 @@
     <body>
         <h1><?php echo $_SERVER['HTTP_HOST']; ?></h1>
         <p>Enabled sites alistairjcbrown.com</p>
+        <p>This has been edited from Github.</p>
     </body>
 </html>
