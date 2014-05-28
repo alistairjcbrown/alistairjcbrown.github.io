@@ -1,0 +1,10 @@
+Options ExecCGI Includes IncludesNOEXEC SymLinksIfOwnerMatch -Indexes
+
+# Add www if missing and redirect from other domains
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^alistairjcbrown\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^(.*)alistairjcbrown\.co\.uk$
+RewriteRule ^(.*)$ http://www.alistairjcbrown.com/$1 [R=301,L]
+</IfModule>
+
