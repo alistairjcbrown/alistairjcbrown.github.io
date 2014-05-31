@@ -3,13 +3,13 @@
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.14 (GNU/Linux)
 
-iQEcBAABAgAGBQJTiRqSAAoJEJEOHi8Q7zzzYtwIAJVr0rCulWofOrSU8Kf3LVvG
-VNoLdPA31oMCVtClZC3FmLarbPZg5WECmcwMZtk1ezqs++m1/xDMp/u3JK6zbFeR
-mVsO/mNLnBQNC6oMbe4Wc8pfLqlu+dLS0Rbnvieyh/gt31wPi28ZFeKA1s/i7T0N
-+br2uagzPKykZJS8ea/szgAcHfIGBLsCT8b+HbqWBhObOA1P6ZBTIcK8Q5/iOAWE
-OqVA7tQCXS4OfBclpiKmYJHtcK54mcTMisPDhCWsXjBlu3rI67aYeT0tZs87Vf+p
-KJ7eqEeNsoEPmW9Je+9tyJUGfcAw9KTIsg/kKdLQ3vToGyf82sbVffkLlLny2kc=
-=rNVH
+iQEcBAABAgAGBQJTildlAAoJEJEOHi8Q7zzz00wH/39r6s1s9BXMaAlzwL6KasrZ
+54NShVfcUHLamfNqTg3quHjhm5IFudsn6JLkogwRDT0XQjgpvRC5YC8y5exVNusk
+3185i+3iU59kmqyZ4qbtVUCrE1GWAVLOXVsWN+TtKla22zyKiKERmkBS8npINKtr
+oVffho7+ePrTKZHvlseFY9istxuf03jcdTdn8cq+IWFX7z3YrKP8RAGqtmVJcjpa
+CbsSwPJj5nt8GvDhPLRUhEhTxoxMjDoD1IXaw0EjpzSdX9TPSyMvQfipbzlEjIZp
+AnFX0wSlfkskzXWq7aVZihZ8gDSzTWD5shwGtHiTis6ekakRPR6L5t+Q2vly7K8=
+=RZPB
 -----END PGP SIGNATURE-----
 
 ```
@@ -21,14 +21,16 @@ KJ7eqEeNsoEPmW9Je+9tyJUGfcAw9KTIsg/kKdLQ3vToGyf82sbVffkLlLny2kc=
 #### Expect
 
 ```
-size  exec  file           contents                                                        
-            ./                                                                             
-395           .htaccess    3b2d8172998092269e5a177a605a0167f643a5a49001a661c8d7f7f710b405cd
-85            README.md    4bbf7a01604798c4cceec972420ce0e9fa9b88da482fd7855c3bf52a25ba76f9
-              css/                                                                         
-1098            reset.css  f96b44c7b969277b79410066c40296ed729b95c6173625b677326736363b7775
-3074            style.css  e3c3076c418ec4a8136a4f22b1fde75fffc4ca81fbb2bcd4642bdfb947b13390
-2827          index.html   f7bb4875a2673944dda51d054eaf3cf77a24a10a328096855dbc2197ac3caa99
+size  exec  file             contents                                                        
+            ./                                                                               
+325           .htaccess      d32419b4aa7534790817455b4511e40d014e4d2d23f4cc2f67e697361d927bf4
+              .well-known/                                                                   
+3000            keybase.txt  01b4a0109d6d816ed6ddf788c9bb5eab7d7b69939dce10c3aeec7b1c7a8f1e04
+85            README.md      4bbf7a01604798c4cceec972420ce0e9fa9b88da482fd7855c3bf52a25ba76f9
+              css/                                                                           
+1098            reset.css    f96b44c7b969277b79410066c40296ed729b95c6173625b677326736363b7775
+3074            style.css    e3c3076c418ec4a8136a4f22b1fde75fffc4ca81fbb2bcd4642bdfb947b13390
+2817          index.html     1e800d3e49cf0f43f059cc58a48a0acc998808073b1e2405f680ae734a3f7bca
 ```
 
 #### Ignore
