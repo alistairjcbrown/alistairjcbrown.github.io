@@ -1,0 +1,77 @@
+==================================================================
+https://keybase.io/alistairjcbrown
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://www.alistairjcbrown.com
+  * I am alistairjcbrown (https://keybase.io/alistairjcbrown) on keybase.
+  * I have a public key with fingerprint C116 6DBC 9162 223C F474  A6E8 3B2E 6A92 CDAA 52D6
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "client": {
+            "name": "keybase.io node.js client",
+            "version": "0.4.0"
+        },
+        "key": {
+            "fingerprint": "c1166dbc9162223cf474a6e83b2e6a92cdaa52d6",
+            "host": "keybase.io",
+            "key_id": "3B2E6A92CDAA52D6",
+            "uid": "8375f10f7ea641f916257d624025c100",
+            "username": "alistairjcbrown"
+        },
+        "merkle_root": {
+            "ctime": 1401561373,
+            "hash": "5f91dc2363fa7fc1944e8ce5477b980d0a390490e4d7d5f1741be0edfe1389aefbeb47f46f6d518dd438df07397a9a66118238d568666b58886b4e46ec8f1346",
+            "seqno": 13565
+        },
+        "service": {
+            "hostname": "www.alistairjcbrown.com",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1401561982,
+    "expire_in": 157680000,
+    "prev": "61b439bfbbafb4a7e9d9e99c3e4116520f24d64640151121a2bbc9e0cc0dd43d",
+    "seqno": 14,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1.4.14 (GNU/Linux)
+
+owFdkl1sFUUYhk9LCyJIMfHnxgBZ0gts2c7Mzs7uVCge4BgMtpgYolhgM3/bLm13
+j7vbc1prqxESggIVjDGhSdULURIkxACJQYKkaQRJK4mJqTGxdygm/nIjEYwzTU3A
+vdqdfb73e99vvrceWFCorTmybEXL8t/W3ay5eoMXnntj9ciQxRM5aLUOWaI3UnFu
+3mLWp6xWq0cNcpYpO0pWxYlU9p5s1TzTbFVUmkVJrClgYxtYw80GN8VhFHeptJxG
+RssSEBIiuaCQIIQcEWIPM6J8hyNFGEVCMuYiSbRkd5Ll93S15jSDSOpTZyMqkSJF
+mzYXiy7abPj+uR++47khBKGnGMEwNH1cTxKEAXIFBMCAmUrnI7HeKMtZlO4RPE2q
+sbHdp9KeXhWkSTKXXeSRISEG0CXQ8RxtjGXdutbV4lIghzgh80IBKcbKF8rFnsep
+DyRgDgWYAoWlJ7UnD0OugJKhgo5PmQq54tgLMQmJdKEvJXZ8GQLPoR6jjBAIfaRP
+XOITQrjr+z7hWGGihB9CB5vImXopTrQ5xyXusPlMK5FQxrYZ3nzGarVq/y+nLZI+
+XV5OkzwRSa+GuvP8i0I5azUTyAfLc3WKB/OKAY9iqe/x7ouGmrx3ONRHzZYaKEep
+CiJDuB7xgX5MJ1XRkgRy7FAecs5CjpmnqKSKUuEorPfCRSBEWBJMjB6ECDLE9aoo
+IAQw45F3RcbaJ+vSmlnUFbO8P1XW8IGax+oKNbWFhfW1ZpUL9y9e/t9+Bw8vur20
+DT+9ZXYgmAFnOr9Kjt1qmHHE1pUft/80+kh9U+nR8dKly1OyfuUrMy83vlo5OXvf
+63nbvuk/1m69Uvzmvcn3R+xzdZOl88+82LFm/PBB9c7jX7Y0H7lx5cMla5s2Ttjr
+O2st/1RLf7ahxz574XLQviUZOXc6mzj52bE3h3Z0THTu3bX/ZrD96K3g2vTfDT+O
+jR4unr7+9errY999X3yeXvx5g/3Q5x2T66Ybnlx2VX3gv/DuwgONF0oXn4hP/H4N
+jdfd+auH7n/t6Kbi1D9PLU76RmfbVxxsKv76w9iDn07t3Nt2fPjQkt3bPtn357bS
+swvWrG/c3X5+59LbHeNV9u3xgcpHu079cufQpbf/BQ==
+=BPBK
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/alistairjcbrown
+
+==================================================================
+
