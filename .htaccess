@@ -1,5 +1,3 @@
-Options ExecCGI Includes IncludesNOEXEC SymLinksIfOwnerMatch -Indexes
-
 # Add www if missing and redirect from other domains
 <IfModule mod_rewrite.c>
 RewriteEngine On
