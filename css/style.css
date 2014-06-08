@@ -84,6 +84,7 @@ li {
 	list-style: none;
 	text-align: center;
 	padding-right: 35%;
+	margin-bottom: 0.3em;
 }
 
 a {
@@ -127,13 +128,24 @@ p.say-hi {
 	font-family: "Open Sans";
 	font-weight: 700;
 	font-style: normal;
-	margin: 0 0 2.1em 0;
 	font-size: 1.4em;
 }
 
 p.motto {
 	float: right;
 	margin: 100px 0 25px 0;
+}
+
+div {
+	margin: 0 0 2.1em 0;
+}
+
+.blog h3 {
+	padding-right: 35%;
+}
+
+.blog li {
+    font-size: 1.1em;
 }
 
 @media screen and (max-width: 800px) {
@@ -183,6 +195,10 @@ p.motto {
 
 	li {
 		width: 74%;
+	}
+
+	.blog h3, li {
+		padding-right: 0;
 	}
 
 }
