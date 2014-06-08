@@ -1,9 +1,9 @@
 # Add www if missing and redirect from other domains
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^alistairjcbrown\.com$ [OR]
-RewriteCond %{HTTP_HOST} ^(.*)alistairjcbrown\.co\.uk$ [OR]
-RewriteCond %{HTTP_HOST} ^(.*)ajcb\.co$
-RewriteRule ^(.*)$ https://www.alistairjcbrown.com/$1 [R=301,L]
-</IfModule>
+#<IfModule mod_rewrite.c>
+#RewriteEngine On
+#RewriteCond %{HTTP_HOST} ^alistairjcbrown\.com$ [OR]
+#RewriteCond %{HTTP_HOST} ^(.*)alistairjcbrown\.co\.uk$ [OR]
+#RewriteCond %{HTTP_HOST} ^(.*)ajcb\.co$
+#RewriteRule ^(.*)$ https://www.alistairjcbrown.com/$1 [R=301,L]
+#</IfModule>
 
