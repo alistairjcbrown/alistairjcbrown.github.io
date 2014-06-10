@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="100"
+   height="100"
+   id="svg3244"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="arrow.svg">
+  <defs
+     id="defs3246" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.959798"
+     inkscape:cx="-11.400456"
+     inkscape:cy="37.08157"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1855"
+     inkscape:window-height="1056"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     showborder="true"
+     inkscape:showpageshadow="false"
+     borderlayer="false" />
+  <metadata
+     id="metadata3249">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-952.36218)">
+    <path
+       id="path3040"
+       d="m 49.879998,954.40637 c -26.372,0 -47.75,21.379 -47.75,47.75003 0,26.372 21.378,47.75 47.75,47.75 26.372,0 47.75,-21.378 47.75,-47.75 0,-26.37203 -21.378,-47.75003 -47.75,-47.75003 z m 18.203,45.265 v -7.025 h 7.025 v 7.025 h -7.025 z m -7.025,7.03303 v -7.02503 h 7.025 v 7.02503 h -7.025 z m -6.938,7.063 v -7.025 h 7.025 v 7.025 h -7.025 z m -6.937,7.062 v -7.025 h 7.025 v 7.025 h -7.025 z m -7.066,-7 v -7.025 h 7.025 v 7.025 h -7.025 z m -7.025,-7.062 v -7.02503 h 7.025 v 7.02503 h -7.025 z m -6.999,-7.01803 v -7.025 h 7.025 v 7.025 h -7.025 z"
+       inkscape:connector-curvature="0"
+       style="fill:#6d307c;fill-opacity:1" />
+  </g>
+</svg>

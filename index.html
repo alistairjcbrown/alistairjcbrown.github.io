@@ -56,6 +56,33 @@
                     </ul>
                 </div>
 
+                <div class="additional-social slide-up">
+                    <ul>
+                        <li>
+                            <a href="http://jsfiddle.net/user/alistairjcbrown/">jsfiddle.net/user/<strong>alistairjcbrown</strong></a>
+                        </li>
+                        <li>
+                            <a href="http://facebook.com/alistairjcbrown">facebook.com/<strong>alistairjcbrown</strong></a>
+                        </li>
+                        <li>
+                            <a href="http://instagram.com/alistairjcbrown">instagram.com/<strong>alistairjcbrown</strong></a>
+                        </li>
+                        <li>
+                            <a href="https://alpha.app.net/alistairjcbrown">alpha.app.net/<strong>alistairjcbrown</strong></a>
+                        </li>
+                        <!--<li>
+                            <a href="http://gravatar.com/alistairjcbrown">gravatar.com/<strong>alistairjcbrown</strong></a>
+                        </li>
+                        <li>
+                            <a href="http://disqus.com/alistairjcbrown/">disqus.com/<strong>alistairjcbrown</strong></a>
+                        </li>-->
+                    </ul>
+                </div>
+
+                <div class="control-arrow">
+                    <img src="images/arrow.svg" alt="arrow" />
+                </div>
+
                 <div class="blog">
                     <h3>
                         Or see what I'm up to on my blog
@@ -77,6 +104,37 @@
 
             ga('create', 'UA-51550136-1', 'alistairjcbrown.com');
             ga('send', 'pageview');
+        </script>
+
+        <script>
+            (function(document) {
+                var hidden_el  = document.getElementsByClassName("additional-social"),
+                    control_el = document.getElementsByClassName("control-arrow");
+
+                if (hidden_el.length < 1 || control_el.length < 1) return;
+
+                // Get the elements
+                hidden_el = hidden_el[0];
+                control_el = control_el[0];
+
+                control_el.onclick = function() {
+                    var element_classes = (" "+hidden_el.className+" ").replace(/[\n\t\r]/g, " "),
+                        remove_class = "slide-down",
+                        add_class = "slide-up",
+                        is_showing = element_classes.indexOf(" "+remove_class+" ") > -1;
+
+                    if ( ! is_showing) {
+                        // Switch variable values
+                        remove_class = [add_class, add_class = remove_class][0];
+                    }
+
+                    // Remove the previous class (if present) and add the new class
+                    hidden_el.className = (element_classes.replace(" "+remove_class+" ", "") + " "+add_class+" ").trim();
+
+                    return false;
+                };
+
+            })(document);
         </script>
     </body>
 </html>
