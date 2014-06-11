@@ -178,7 +178,7 @@ li, .blog h3, .control-arrow {
 }
 
 .slide-down {
-    max-height: 10em;
+    max-height: 13em;
 }
 
 .slide-down + .control-arrow > img {
