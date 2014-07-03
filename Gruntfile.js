@@ -64,7 +64,7 @@ module.exports = function(grunt) {
             banner: "/*\n" +
                     " * <%= pkg.name %> - <%= grunt.template.today(\"yyyy-mm-dd\") %>\n" +
                     " * Unminifed versions can be found at: http://jsfiddle.net/user/alistairjcbrown/\n" +
-                    " */"
+                    " */\n"
         },
         my_target: {
             files: {
