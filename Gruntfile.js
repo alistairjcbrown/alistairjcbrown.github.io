@@ -10,13 +10,7 @@
 module.exports = function(grunt) {
     "use strict";
 
-    var jshint, uglify, cssmin, keybase_dir;
-
-    // ------
-
-    // Strict JSHint rules
-    jshint = {
-        "all": [
+    var js_paths = [
             "./*.js",
             "./**/*.js",
             "!./js/google-analytics.js", // Exclude analytics code
@@ -26,6 +20,13 @@ module.exports = function(grunt) {
             "!./**/node_modules/**/*.js",
             "!./.git/"
         ],
+        jshint, jscs, uglify, cssmin, keybase_dir;
+
+    // ------
+
+    // Strict JSHint rules
+    jshint = {
+        "all": js_paths,
         "options": {
             "curly":      true,
             "devel":      false,
@@ -53,7 +54,15 @@ module.exports = function(grunt) {
                 "require":   true
             }
         }
-    },
+    };
+
+    jscs = {
+        src: js_paths,
+        options: {
+            config: ".jscsrc",
+            requireCurlyBraces: [ "if" ]
+        }
+    };
 
     // Minify and uglify the Javascript source
     uglify = {
@@ -62,8 +71,11 @@ module.exports = function(grunt) {
                 drop_console: true
             },
             banner: "/*\n" +
-                    " * <%= pkg.name %> - <%= grunt.template.today(\"yyyy-mm-dd\") %>\n" +
-                    " * Unminifed versions can be found at: http://jsfiddle.net/user/alistairjcbrown/\n" +
+                    " * <%= pkg.name %> - <%= grunt.template.today(\"yyyy-mm-dd\") %>" +
+                    "\n" +
+                    " * Unminifed versions can be found at: " +
+                    "http://jsfiddle.net/user/alistairjcbrown/" +
+                    "\n" +
                     " */\n"
         },
         my_target: {
@@ -97,6 +109,7 @@ module.exports = function(grunt) {
     grunt.initConfig({
         "pkg":          grunt.file.readJSON("package.json"),
         "jshint":       jshint,
+        "jscs":         jscs,
         "uglify":       uglify,
         "cssmin":       cssmin,
         "keybase_dir":  keybase_dir
@@ -106,7 +119,7 @@ module.exports = function(grunt) {
     require("load-grunt-tasks")(grunt);
 
     // Define tasks
-    grunt.registerTask("lint",    [ "jshint" ]);
+    grunt.registerTask("lint",    [ "jscs", "jshint" ]);
     grunt.registerTask("verify",  [ "keybase_dir:verify" ]);
     grunt.registerTask("go",      [ "build" ]);
     grunt.registerTask("build",   [ "lint", "uglify", "cssmin", "keybase_dir:sign" ]);

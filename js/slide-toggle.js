@@ -14,19 +14,22 @@
     control_el = control_el[0];
 
     control_el.onclick = function() {
-        var element_classes = (" "+hidden_el.className+" ").replace(/[\n\t\r]/g, " "),
+        var element_classes = (" " + hidden_el.className + " ").replace(/[\n\t\r]/g, " "),
             remove_class    = "slide-down",
             add_class       = "slide-up",
-            is_showing      = element_classes.indexOf(" "+remove_class+" ") > -1;
+            is_showing      = element_classes.indexOf(" " + remove_class + " ") > -1;
 
         if ( ! is_showing) {
             // Switch variable values
-            remove_class = [add_class, add_class = remove_class][0];
+            remove_class = [ add_class, add_class = remove_class ][0];
         }
 
         // Remove the previous class (if present) and add the new class
-        hidden_el.className = (element_classes.replace(" "+remove_class+" ", "") + " "+add_class+" ").trim();
+        element_classes = element_classes.replace(" " + remove_class + " ", "");
+        hidden_el.className = (element_classes + " " + add_class + " ").trim();
 
         return false;
     };
 })(document);
+
+// End of file

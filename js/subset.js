@@ -137,10 +137,17 @@
     // Add open sans font from Google with subsetting
     (function() {
         var head = document.getElementsByTagName("head")[0],
-            open_sans_css = "//fonts.googleapis.com/css?family=Open+Sans:400normal,300normal,700normal,600normal",
+            open_sans_css = "//fonts.googleapis.com/css?family=" +
+                            "Open+Sans:400normal,300normal,700normal,600normal",
             subset = encodeURIComponent(new CharactersInUse().getList());
 
-        head.innerHTML += "<link href=\"" + open_sans_css + "&text=" + subset + "\" rel=\"stylesheet\" type=\"text/CSS\">";
+        head.innerHTML += "<link " +
+                            "href=\"" + open_sans_css + "&text=" + subset + "\" " +
+                            "rel=\"stylesheet\" " +
+                            "type=\"text/CSS\" "  +
+                           ">";
     })();
 
 })(document);
+
+// End of file
