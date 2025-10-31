@@ -53,6 +53,11 @@ p.site-text {
 	font-size: 1.2em;
 }
 
+span.spacer {
+	display: block;
+	margin-top: 12px;
+}
+
 h1 {
 	font-size: 3.5em;
 	margin: 0 0 0.8em 0;
@@ -296,10 +301,6 @@ li, .blog h3, .control-arrow {
 		font-family: "Open Sans";
 		font-weight: 300;
 		font-style: normal;
-	}
-
-	span.extra {
-		display: none;
 	}
 
 	.control-arrow > img {

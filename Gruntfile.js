@@ -20,7 +20,7 @@ module.exports = function(grunt) {
             "!./**/node_modules/**/*.js",
             "!./.git/"
         ],
-        jshint, jscs, uglify, cssmin, keybase_dir;
+        jshint, uglify, cssmin;
 
     // ------
 
@@ -53,14 +53,6 @@ module.exports = function(grunt) {
                 "module":    true,
                 "require":   true
             }
-        }
-    };
-
-    jscs = {
-        src: js_paths,
-        options: {
-            config: ".jscsrc",
-            requireCurlyBraces: [ "if" ]
         }
     };
 
@@ -101,28 +93,20 @@ module.exports = function(grunt) {
         }
     };
 
-    keybase_dir = {
-        verify: {},
-        sign: {}
-    };
-
     grunt.initConfig({
         "pkg":          grunt.file.readJSON("package.json"),
         "jshint":       jshint,
-        "jscs":         jscs,
         "uglify":       uglify,
         "cssmin":       cssmin,
-        "keybase_dir":  keybase_dir
     });
 
     // Load Tasks
     require("load-grunt-tasks")(grunt);
 
     // Define tasks
-    grunt.registerTask("lint",    [ "jscs", "jshint" ]);
-    grunt.registerTask("verify",  [ "keybase_dir:verify" ]);
+    grunt.registerTask("lint",    [ "jshint" ]);
     grunt.registerTask("go",      [ "build" ]);
-    grunt.registerTask("build",   [ "lint", "uglify", "cssmin", "keybase_dir:sign" ]);
+    grunt.registerTask("build",   [ "lint", "uglify", "cssmin" ]);
     grunt.registerTask("default", [ "go" ]);
 
 };

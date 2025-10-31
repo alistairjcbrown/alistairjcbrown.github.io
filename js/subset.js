@@ -109,7 +109,7 @@
             // Get the contents of the page
             body_text = _getBodyText(),
             css_content = _getCssContentValues(),
-            page_content = body_text + "" + css_content;
+            page_content = (body_text + "" + css_content).replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, '').trim();
 
             for (i = 0; i < page_content.length; i++) {
                 // Ignore whitespace

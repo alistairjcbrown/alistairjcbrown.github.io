@@ -1,9 +1,0 @@
-{
-    "preset": "jquery",
-    "requireCamelCaseOrUpperCaseIdentifiers": null,
-    "disallowSpacesInsideArrayBrackets": null,
-    "disallowSpaceAfterPrefixUnaryOperators": ["++", "--", "+", "-", "~"],
-    "requireSpaceAfterPrefixUnaryOperators": ["!"],
-    "validateIndentation": 4,
-    "disallowMixedSpacesAndTabs": true
-}
