@@ -11,7 +11,7 @@ npx parcel build src/index.html
 ### Serve
 
 ```
-npx parcel build src/index.html
+npx parcel build src/index.html --dist-dir ./docs
 ```
 
 ### Format
