@@ -157,6 +157,7 @@ div {
 }
 
 .control-arrow {
+  all: unset;
   margin-bottom: 1em;
   margin-top: -1.2em;
 }
@@ -174,7 +175,7 @@ div {
 li,
 .blog h3,
 .control-arrow {
-  padding-right: 35%;
+  margin-right: 35%;
 }
 
 .blog .blog li {

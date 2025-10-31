@@ -5,13 +5,13 @@ Code running http://www.alistairjcbrown.com
 ### Build
 
 ```
-npx parcel build src/index.html
+npx parcel build src/index.html --dist-dir ./docs
 ```
 
 ### Serve
 
 ```
-npx parcel build src/index.html --dist-dir ./docs
+python3 -m http.server --directory ./docs
 ```
 
 ### Format
