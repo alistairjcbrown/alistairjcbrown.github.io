@@ -3,7 +3,6 @@
   "description": "Personal website",
   "private": true,
   "author": "Alistair Brown <github@alistairjcbrown.com>",
-  "bugs": "https://github.com/alistairjcbrown/check-type/issues",
   "devDependencies": {
     "parcel": "^2.16.0"
   },
