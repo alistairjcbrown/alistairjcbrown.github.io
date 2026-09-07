@@ -25,14 +25,23 @@ if (entries.length === 0) {
 
 // The same feed publishes every venue list, so a cinema added on Letterboxd
 // turns up here without anyone editing the registry.
+const previous = JSON.stringify(diary.entries);
 diary.entries = await attachVenues(
   mergeEntries(diary.entries, entries),
   parseVenueLists(feed),
 );
-diary.updated = new Date().toISOString().slice(0, 10);
+
+// `updated` only moves when something actually changed. Stamping it every run
+// would rewrite the file on a day with no new films, and since the workflow
+// commits whatever the build touches, that is a commit a day forever saying
+// nothing. It is the date of the last new screening, not of the last run.
+const changed = JSON.stringify(diary.entries) !== previous;
+if (changed) diary.updated = new Date().toISOString().slice(0, 10);
 await writeDiary(diary);
 
 const added = diary.entries.length - before;
 console.log(
-  `Feed carried ${entries.length} entries; store now holds ${diary.entries.length} (+${added}).`,
+  changed
+    ? `Feed carried ${entries.length} entries; store now holds ${diary.entries.length} (+${added}).`
+    : `Feed carried ${entries.length} entries; nothing new.`,
 );
