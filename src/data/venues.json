@@ -26,6 +26,12 @@
       "clusterflick": "beer-merchants-tap"
     },
     {
+      "id": "cineworld-leicester-square",
+      "name": "Cineworld Leicester Square",
+      "site": "https://www.cineworld.co.uk/cinemas/london-leicester-square/103",
+      "clusterflick": "cineworld-leicester-square"
+    },
+    {
       "id": "close-up-cinema",
       "name": "Close-Up Cinema",
       "site": "https://www.closeupfilmcentre.com/",
@@ -42,6 +48,18 @@
       "name": "Curzon Hoxton",
       "site": "https://www.curzon.com/venues/hoxton/",
       "clusterflick": "curzon-hoxton"
+    },
+    {
+      "id": "everyman-broadgate",
+      "name": "Everyman Broadgate",
+      "site": "https://www.everymancinema.com/venues-list/x11nt-everyman-broadgate/",
+      "clusterflick": "everyman-broadgate"
+    },
+    {
+      "id": "everyman-kings-cross",
+      "name": "Everyman King's Cross",
+      "site": "https://www.everymancinema.com/venues-list/x0x5p-everyman-kings-cross/",
+      "clusterflick": "everyman-kings-cross"
     },
     {
       "id": "everyman-screen-on-the-green",
@@ -86,15 +104,28 @@
       "clusterflick": "prince-charles-cinema"
     },
     {
+      "id": "rich-mix",
+      "name": "Rich Mix",
+      "site": "https://richmix.org.uk/cinema/",
+      "clusterflick": "rich-mix"
+    },
+    {
       "id": "rio-cinema",
       "name": "Rio Cinema",
       "site": "https://riocinema.org.uk/",
       "clusterflick": "rio-cinema"
     },
     {
-      "id": "rooftop-film-club-stratford",
-      "name": "Rooftop Film Club Stratford",
-      "site": "https://rooftopfilmclub.com/london/venue/stratford/"
+      "id": "rooftop-cinema-club-stratford",
+      "name": "Rooftop Cinema Club Stratford",
+      "site": "https://rooftopfilmclub.com/london/venue/stratford/",
+      "clusterflick": "rooftop-cinema-club-stratford"
+    },
+    {
+      "id": "subtitle-cinema",
+      "name": "Subtitle Cinema",
+      "site": "https://www.scarlettmalone.com/subtitlecinema",
+      "clusterflick": "subtitle-cinema"
     },
     {
       "id": "the-castle-cinema",
@@ -113,6 +144,12 @@
       "name": "The Nickel",
       "site": "https://thenickel.co.uk/",
       "clusterflick": "the-nickel"
+    },
+    {
+      "id": "vue-islington",
+      "name": "Vue Islington",
+      "site": "https://www.myvue.com/cinema/islington",
+      "clusterflick": "vue-islington"
     },
     {
       "id": "vue-westfield-stratford",

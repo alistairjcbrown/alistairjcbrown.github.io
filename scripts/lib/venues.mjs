@@ -15,7 +15,7 @@
 
 import { writeFile } from "node:fs/promises";
 import { readJson, VENUES_PATH } from "./diary.mjs";
-import { MEMBER, fetchText } from "./letterboxd.mjs";
+import { MEMBER, fetchText, decodeEntities } from "./letterboxd.mjs";
 
 export async function readVenues() {
   return readJson(VENUES_PATH, { venues: [] });
@@ -36,7 +36,12 @@ export function parseVenueLists(xml) {
     .filter((item) => /<guid[^>]*>letterboxd-list/.test(item))
     .map((item) => ({
       id: item.match(/<link>[^<]*\/list\/([^/]+)\//)?.[1],
-      name: item.match(/<title>([^<]*)<\/title>/)?.[1]?.trim(),
+      // Titles arrive XML-escaped, so "Everyman King's Cross" reaches us as
+      // "Everyman King&#039;s Cross" - which would be stored, and rendered,
+      // exactly like that.
+      name: decodeEntities(
+        item.match(/<title>([^<]*)<\/title>/)?.[1] ?? "",
+      ).trim(),
     }))
     .filter((venue) => venue.id && venue.name);
 }

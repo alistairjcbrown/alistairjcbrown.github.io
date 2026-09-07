@@ -179,5 +179,5 @@ const html = (await readFile(TEMPLATE, "utf8"))
 await mkdir(new URL("../src/cinema/", import.meta.url), { recursive: true });
 await writeFile(OUTPUT, html);
 console.log(
-  `Wrote src/cinema.html — ${total} screenings across ${years.length} year(s).`,
+  `Wrote src/cinema/index.html — ${total} screenings across ${years.length} year(s).`,
 );
