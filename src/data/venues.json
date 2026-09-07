@@ -4,158 +4,157 @@
     {
       "id": "bfi-imax",
       "name": "BFI IMAX",
-      "site": "https://www.bfi.org.uk/bfi-imax",
-      "clusterflick": "bfi-imax"
+      "clusterflick": "bfi-imax",
+      "site": "https://www.bfi.org.uk/bfi-imax"
     },
     {
       "id": "bfi-southbank",
       "name": "BFI Southbank",
-      "site": "https://whatson.bfi.org.uk/",
-      "clusterflick": "bfi-southbank"
+      "clusterflick": "bfi-southbank",
+      "site": "https://whatson.bfi.org.uk/Online/default.asp"
     },
     {
       "id": "barbican",
       "name": "Barbican",
-      "site": "https://www.barbican.org.uk/whats-on/cinema",
-      "clusterflick": "the-barbican"
+      "clusterflick": "the-barbican",
+      "site": "https://www.barbican.org.uk/whats-on/cinema"
     },
     {
       "id": "beer-merchants-tap",
       "name": "Beer Merchants Tap",
-      "site": "https://beermerchantstap.com/",
       "clusterflick": "beer-merchants-tap"
     },
     {
       "id": "cineworld-leicester-square",
       "name": "Cineworld Leicester Square",
-      "site": "https://www.cineworld.co.uk/cinemas/london-leicester-square/103",
-      "clusterflick": "cineworld-leicester-square"
+      "clusterflick": "cineworld-leicester-square",
+      "site": "https://www.cineworld.co.uk/cinemas/london-leicester-square/103"
     },
     {
       "id": "close-up-cinema",
       "name": "Close-Up Cinema",
-      "site": "https://www.closeupfilmcentre.com/",
-      "clusterflick": "close-up-film-centre"
+      "clusterflick": "close-up-film-centre",
+      "site": "https://www.closeupfilmcentre.com"
     },
     {
       "id": "curzon-bloomsbury",
       "name": "Curzon Bloomsbury",
-      "site": "https://www.curzon.com/venues/bloomsbury/",
-      "clusterflick": "curzon-bloomsbury"
+      "clusterflick": "curzon-bloomsbury",
+      "site": "https://www.curzon.com/venues/bloomsbury/"
     },
     {
       "id": "curzon-hoxton",
       "name": "Curzon Hoxton",
-      "site": "https://www.curzon.com/venues/hoxton/",
-      "clusterflick": "curzon-hoxton"
+      "clusterflick": "curzon-hoxton",
+      "site": "https://www.curzon.com/venues/hoxton/"
     },
     {
       "id": "everyman-broadgate",
       "name": "Everyman Broadgate",
-      "site": "https://www.everymancinema.com/venues-list/x11nt-everyman-broadgate/",
-      "clusterflick": "everyman-broadgate"
+      "clusterflick": "everyman-broadgate",
+      "site": "https://www.everymancinema.com/venues-list/x11nt-everyman-broadgate/"
     },
     {
       "id": "everyman-kings-cross",
       "name": "Everyman King's Cross",
-      "site": "https://www.everymancinema.com/venues-list/x0x5p-everyman-kings-cross/",
-      "clusterflick": "everyman-kings-cross"
+      "clusterflick": "everyman-kings-cross",
+      "site": "https://www.everymancinema.com/venues-list/x0x5p-everyman-kings-cross/"
     },
     {
       "id": "everyman-screen-on-the-green",
       "name": "Everyman Screen on the Green",
-      "site": "https://www.everymancinema.com/venues-list/everyman-screen-on-the-green/",
-      "clusterflick": "everyman-screen-on-the-green"
+      "clusterflick": "everyman-screen-on-the-green",
+      "site": "https://www.everymancinema.com/venues-list/x077o-everyman-screen-on-the-green/"
     },
     {
       "id": "everyman-stratford",
       "name": "Everyman Stratford",
-      "site": "https://www.everymancinema.com/venues-list/everyman-stratford-international/",
-      "clusterflick": "everyman-stratford-international"
+      "clusterflick": "everyman-stratford-international",
+      "site": "https://www.everymancinema.com/venues-list/g029x-everyman-stratford-international/"
     },
     {
       "id": "genesis-cinema",
       "name": "Genesis Cinema",
-      "site": "https://genesiscinema.co.uk/",
-      "clusterflick": "genesis-cinema"
+      "clusterflick": "genesis-cinema",
+      "site": "https://genesiscinema.co.uk/"
     },
     {
       "id": "hackney-picturehouse",
       "name": "Hackney Picturehouse",
-      "site": "https://www.picturehouses.com/cinema/hackney-picturehouse",
-      "clusterflick": "hackney-picturehouse"
+      "clusterflick": "hackney-picturehouse",
+      "site": "https://www.picturehouses.com/cinema/hackney-picturehouse"
     },
     {
       "id": "odeon-tottenham-court-road",
       "name": "ODEON Tottenham Court Road",
-      "site": "https://www.odeon.co.uk/cinemas/london-tottenham-court-road/",
-      "clusterflick": "odeon-tottenham-court-road"
+      "clusterflick": "odeon-tottenham-court-road",
+      "site": "https://www.odeon.co.uk/cinemas/london-tottenham-court-road/"
     },
     {
       "id": "picturehouse-central",
       "name": "Picturehouse Central",
-      "site": "https://www.picturehouses.com/cinema/picturehouse-central",
-      "clusterflick": "picturehouse-central"
+      "clusterflick": "picturehouse-central",
+      "site": "https://www.picturehouses.com/cinema/picturehouse-central"
     },
     {
       "id": "prince-charles-cinema",
       "name": "Prince Charles Cinema",
-      "site": "https://princecharlescinema.com/",
-      "clusterflick": "prince-charles-cinema"
+      "clusterflick": "prince-charles-cinema",
+      "site": "https://princecharlescinema.com/"
     },
     {
       "id": "rich-mix",
       "name": "Rich Mix",
-      "site": "https://richmix.org.uk/cinema/",
-      "clusterflick": "rich-mix"
+      "clusterflick": "rich-mix",
+      "site": "https://richmix.org.uk/cinema/"
     },
     {
       "id": "rio-cinema",
       "name": "Rio Cinema",
-      "site": "https://riocinema.org.uk/",
-      "clusterflick": "rio-cinema"
+      "clusterflick": "rio-cinema",
+      "site": "https://riocinema.org.uk"
     },
     {
       "id": "rooftop-cinema-club-stratford",
       "name": "Rooftop Cinema Club Stratford",
-      "site": "https://rooftopfilmclub.com/london/venue/stratford/",
-      "clusterflick": "rooftop-cinema-club-stratford"
+      "clusterflick": "rooftop-cinema-club-stratford",
+      "site": "https://rooftopfilmclub.com/london/venue/stratford/"
     },
     {
       "id": "subtitle-cinema",
       "name": "Subtitle Cinema",
-      "site": "https://www.scarlettmalone.com/subtitlecinema",
-      "clusterflick": "subtitle-cinema"
+      "clusterflick": "subtitle-cinema",
+      "site": "https://www.scarlettmalone.com/subtitlecinema"
     },
     {
       "id": "the-castle-cinema",
       "name": "The Castle Cinema",
-      "site": "https://thecastlecinema.com/",
-      "clusterflick": "the-castle-cinema"
+      "clusterflick": "the-castle-cinema",
+      "site": "https://thecastlecinema.com/"
     },
     {
       "id": "the-cinema-at-selfridges",
       "name": "The Cinema at Selfridges",
-      "site": "https://www.selfridges.com/GB/en/features/thecinema/",
-      "clusterflick": "the-cinema-at-selfridges"
+      "clusterflick": "the-cinema-at-selfridges",
+      "site": "https://www.olympicstudios.com/pages/the-cinema-at-selfridges"
     },
     {
       "id": "the-nickel",
       "name": "The Nickel",
-      "site": "https://thenickel.co.uk/",
-      "clusterflick": "the-nickel"
+      "clusterflick": "the-nickel",
+      "site": "https://thenickel.co.uk"
     },
     {
       "id": "vue-islington",
       "name": "Vue Islington",
-      "site": "https://www.myvue.com/cinema/islington",
-      "clusterflick": "vue-islington"
+      "clusterflick": "vue-islington",
+      "site": "https://www.myvue.com/cinema/islington"
     },
     {
       "id": "vue-westfield-stratford",
       "name": "Vue Westfield Stratford",
-      "site": "https://www.myvue.com/cinema/westfield-stratford",
-      "clusterflick": "vue-westfield-stratford"
+      "clusterflick": "vue-westfield-stratford",
+      "site": "https://www.myvue.com/cinema/westfield-stratford-city/whats-on"
     }
   ]
 }

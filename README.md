@@ -76,13 +76,20 @@ an imported entry and the same viewing from the feed collapse into one.
 Adding a film to a Letterboxd list named after the cinema is what gives a
 screening its venue. The lists are discovered from the RSS feed, which
 publishes every one of them — `/lists/page/2/` is behind the Cloudflare
-challenge, so reading the lists page only ever finds the first twelve. A new
-cinema list is appended to `src/data/venues.json` automatically; the `site` and
-`clusterflick` links on each entry are set by hand.
+challenge, so reading the lists page only ever finds the first twelve.
+
+A new cinema list is appended to `src/data/venues.json` automatically, and its
+`site` link is read from the list's own description, where Letterboxd renders
+it as "About this list: …". Only the `clusterflick` slug is set by hand. An
+existing `site` is never overwritten, so a hand-corrected link stays put.
 
 A list carries no dates, so this only ever labels a viewing the diary already
 knows about — it never decides whether something counts, and it cannot tell two
 viewings of the same film apart.
+
+The **Cinemas** tab lists every venue visited, most-visited first. It is
+all-time rather than per-year, which is why it sits apart from the run of year
+tabs.
 
 ### Automation
 

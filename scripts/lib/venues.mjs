@@ -21,11 +21,36 @@ export async function readVenues() {
   return readJson(VENUES_PATH, { venues: [] });
 }
 
-export async function fetchVenueFilms(id) {
+// Writes the registry back whole, so the leading _comment survives.
+async function writeVenues(registry) {
+  await writeFile(VENUES_PATH, `${JSON.stringify(registry, undefined, 2)}\n`);
+}
+
+export async function fetchVenueList(id) {
   const html = await fetchText(`https://letterboxd.com/${MEMBER}/list/${id}/`);
-  return new Set(
-    [...html.matchAll(/data-item-slug="([^"]+)"/g)].map((match) => match[1]),
-  );
+
+  return {
+    films: new Set(
+      [...html.matchAll(/data-item-slug="([^"]+)"/g)].map((match) => match[1]),
+    ),
+    site: findListSite(html),
+  };
+}
+
+// Each list's description ends with the cinema's own address, which Letterboxd
+// renders as "About this list: www.example.com/whatever". That is where the
+// site links in the registry came from when they were typed in by hand, so
+// read them from there instead. The address is written without a scheme.
+function findListSite(html) {
+  const description = html.match(
+    /<meta name="description" content="([^"]*)"/,
+  )?.[1];
+  const site = decodeEntities(description ?? "").match(
+    /About this list:\s*(\S+)/,
+  )?.[1];
+
+  if (!site) return undefined;
+  return /^https?:\/\//.test(site) ? site : `https://${site}`;
 }
 
 // Every list in the feed is a venue - that is what Alistair uses lists for. A
@@ -59,7 +84,7 @@ export async function syncVenueRegistry(discovered) {
     registry.venues = [...registry.venues, ...added].sort((a, b) =>
       a.name.localeCompare(b.name),
     );
-    await writeFile(VENUES_PATH, `${JSON.stringify(registry, undefined, 2)}\n`);
+    await writeVenues(registry);
     for (const venue of added) {
       console.log(`  + new venue: ${venue.name} (${venue.id})`);
     }
@@ -72,20 +97,37 @@ export async function syncVenueRegistry(discovered) {
 // removes one: a list since tidied should not silently strip the venue off an
 // old screening.
 export async function attachVenues(entries, discovered) {
-  const { venues } = await syncVenueRegistry(discovered ?? []);
+  const registry = await syncVenueRegistry(discovered ?? []);
+  const { venues } = registry;
   if (venues.length === 0) return entries;
 
   const byFilm = new Map();
+  let learned = 0;
+
   for (const venue of venues) {
-    let films;
+    let list;
     try {
-      films = await fetchVenueFilms(venue.id);
+      list = await fetchVenueList(venue.id);
     } catch (error) {
       console.warn(`  ! venue list ${venue.id} unavailable: ${error.message}`);
       continue;
     }
-    for (const film of films) if (!byFilm.has(film)) byFilm.set(film, venue.id);
+
+    // Fill in a site link the registry does not have yet, but never overwrite
+    // one: a hand-corrected link is worth more than whatever the description
+    // happens to say, and only the Clusterflick slug is left to set by hand.
+    if (!venue.site && list.site) {
+      venue.site = list.site;
+      learned += 1;
+      console.log(`  + site for ${venue.name}: ${list.site}`);
+    }
+
+    for (const film of list.films) {
+      if (!byFilm.has(film)) byFilm.set(film, venue.id);
+    }
   }
+
+  if (learned > 0) await writeVenues(registry);
 
   return entries.map((entry) => {
     const venue = byFilm.get(entry.slug);
