@@ -102,6 +102,19 @@ body.cinema div.wrapper {
   border-color: #f12869;
 }
 
+/* The years are a run; the cinemas view is a different cut of the same data,
+ * so it gets a little air rather than reading as one more year. On mobile the
+ * row wraps and does the separating on its own. */
+.year-tab[data-panel="cinemas"] {
+  margin-left: 0.8em;
+}
+
+@media screen and (max-width: 600px) {
+  .year-tab[data-panel="cinemas"] {
+    margin-left: 0;
+  }
+}
+
 .year-tab-now {
   display: inline-block;
   margin-left: 0.5em;
@@ -307,6 +320,94 @@ ul.films > li.film {
 .film-venue a:hover {
   color: #319edb;
   border-bottom-color: transparent;
+}
+
+/* The cinemas list --------------------------------------------------------- */
+
+ul.venues {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(19em, 1fr));
+  gap: 0.4em 2.5em;
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+}
+
+ul.venues > li.venue {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9em;
+  list-style: none;
+  width: auto;
+  margin: 0;
+  padding: 0.5em 0;
+  font-size: 1em;
+  text-align: left;
+  line-height: 1.3;
+}
+
+/* Fixed width so the names line up into a column whatever the counts are. */
+.venue-count {
+  flex: 0 0 1.8em;
+  text-align: right;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.15em;
+  color: #f12869;
+}
+
+.venue-detail {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.venue-name,
+.venue-name:link,
+.venue-name:visited {
+  color: #e5e5e5;
+  border-bottom: 0;
+  font-weight: 500;
+}
+
+.venue-name:hover {
+  color: #fade05;
+}
+
+.venue-site,
+.venue-site:link,
+.venue-site:visited {
+  display: block;
+  font-size: 0.8em;
+  color: #8f8fa0;
+  border-bottom: 0;
+}
+
+.venue-site:hover {
+  color: #319edb;
+}
+
+/* Scaled against the busiest cinema, so the list has a shape you can read at
+ * a glance without turning it into a chart. */
+.venue-bar {
+  display: block;
+  height: 3px;
+  width: var(--fill);
+  min-width: 3px;
+  margin-top: 0.45em;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #f12869, #319edb);
+  opacity: 0.55;
+}
+
+li.venue:hover .venue-bar {
+  opacity: 1;
+}
+
+@media screen and (max-width: 600px) {
+  ul.venues {
+    grid-template-columns: 1fr;
+    gap: 0 1em;
+  }
 }
 
 /* Footer ----------------------------------------------------------------- */

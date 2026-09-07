@@ -128,7 +128,7 @@ function renderYear(year, venues, today) {
     .join("");
 
   return `
-      <section class="year" id="year-${year.index}" data-year="${year.index}"${year.current ? "" : " hidden"}>
+      <section class="panel year" id="year-${year.index}" data-panel="year-${year.index}"${year.current ? "" : " hidden"}>
         <p class="year-standing">
           <span class="year-count"><strong>${count}</strong> of ${CHALLENGE_TARGET}</span>
           <span class="year-note">${escape(standing)}</span>
@@ -139,6 +139,63 @@ function renderYear(year, venues, today) {
             : months
         }
       </section>`;
+}
+
+// Every cinema visited, most-visited first - an all-time view, so it does not
+// move with the year tabs. The bar is scaled against the busiest venue rather
+// than the total, so the shape of the list stays readable when one cinema
+// dominates the way Hackney Picturehouse does.
+function renderCinemas(entries, venues) {
+  const counts = new Map();
+  for (const entry of entries) {
+    if (entry.venue)
+      counts.set(entry.venue, (counts.get(entry.venue) ?? 0) + 1);
+  }
+
+  const visited = venues
+    .filter((venue) => counts.has(venue.id))
+    .map((venue) => ({ ...venue, count: counts.get(venue.id) }))
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+
+  const busiest = visited[0]?.count ?? 1;
+  const screenings = [...counts.values()].reduce((sum, n) => sum + n, 0);
+
+  const rows = visited
+    .map((venue) => {
+      const href = venue.clusterflick
+        ? `https://clusterflick.com/venues/${escape(venue.clusterflick)}/`
+        : venue.site;
+      const name = escape(venue.name);
+
+      return `
+            <li class="venue">
+              <span class="venue-count">${venue.count}</span>
+              <span class="venue-detail">
+                ${href ? `<a class="venue-name" href="${escape(href)}">${name}</a>` : `<span class="venue-name">${name}</span>`}
+                ${venue.site ? `<a class="venue-site" href="${escape(venue.site)}">${escape(hostOf(venue.site))}</a>` : ""}
+                <span class="venue-bar" style="--fill: ${Math.round((venue.count / busiest) * 100)}%"></span>
+              </span>
+            </li>`;
+    })
+    .join("");
+
+  return `
+      <section class="panel" id="cinemas" data-panel="cinemas" hidden>
+        <p class="year-standing">
+          <span class="year-count"><strong>${visited.length}</strong> cinemas</span>
+          <span class="year-note">${screenings} screenings since August 2024</span>
+        </p>
+        <ul class="venues">${rows}
+        </ul>
+      </section>`;
+}
+
+function hostOf(url) {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return url;
+  }
 }
 
 function describePace(difference) {
@@ -157,21 +214,34 @@ const venueMap = new Map(venues.map((venue) => [venue.id, venue]));
 const entries = diary.entries.filter((entry) => entry.date >= CHALLENGE_START);
 const years = challengeYears(entries, today);
 
-const tabs = years
-  .map(
-    (year) => `
-          <button type="button" class="year-tab${year.current ? " is-selected" : ""}" role="tab" aria-selected="${year.current}" aria-controls="year-${year.index}" data-year="${year.index}">
-            ${escape(year.label)}${year.current ? '<span class="year-tab-now">now</span>' : ""}
-          </button>`,
-  )
-  .join("");
+function renderTab({ id, label, extra = "", selected = false }) {
+  return `
+          <button type="button" class="year-tab${selected ? " is-selected" : ""}" role="tab" aria-selected="${selected}" aria-controls="${id}" data-panel="${id}">
+            ${escape(label)}${extra}
+          </button>`;
+}
+
+const tabs = [
+  ...years.map((year) =>
+    renderTab({
+      id: `year-${year.index}`,
+      label: year.label,
+      extra: year.current ? '<span class="year-tab-now">now</span>' : "",
+      selected: year.current,
+    }),
+  ),
+  // The cinemas are all-time rather than per-year, so this reads as a
+  // different kind of view rather than one more year in the run.
+  renderTab({ id: "cinemas", label: "Cinemas" }),
+].join("");
 
 const total = entries.length;
 const html = (await readFile(TEMPLATE, "utf8"))
   .replace("{{TABS}}", tabs)
   .replace(
     "{{YEARS}}",
-    years.map((year) => renderYear(year, venueMap, today)).join(""),
+    years.map((year) => renderYear(year, venueMap, today)).join("") +
+      renderCinemas(entries, venues),
   )
   .replace(/{{TOTAL}}/g, String(total))
   .replace(/{{UPDATED}}/g, escape(diary.updated ?? today));
