@@ -1,0 +1,76 @@
+{
+  "_comment": "Letterboxd list slug -> how the venue is named and linked on the timeline. `clusterflick` is the venue slug on clusterflick.com; omit it where the venue has no page there. Add a new venue by adding its Letterboxd list slug here.",
+  "venues": [
+    {
+      "id": "prince-charles-cinema",
+      "name": "Prince Charles Cinema",
+      "site": "https://princecharlescinema.com/",
+      "clusterflick": "prince-charles-cinema"
+    },
+    {
+      "id": "hackney-picturehouse",
+      "name": "Hackney Picturehouse",
+      "site": "https://www.picturehouses.com/cinema/hackney-picturehouse",
+      "clusterflick": "hackney-picturehouse"
+    },
+    {
+      "id": "genesis-cinema",
+      "name": "Genesis Cinema",
+      "site": "https://genesiscinema.co.uk/",
+      "clusterflick": "genesis-cinema"
+    },
+    {
+      "id": "rio-cinema",
+      "name": "Rio Cinema",
+      "site": "https://riocinema.org.uk/",
+      "clusterflick": "rio-cinema"
+    },
+    {
+      "id": "bfi-southbank",
+      "name": "BFI Southbank",
+      "site": "https://whatson.bfi.org.uk/",
+      "clusterflick": "bfi-southbank"
+    },
+    {
+      "id": "bfi-imax",
+      "name": "BFI IMAX",
+      "site": "https://www.bfi.org.uk/bfi-imax",
+      "clusterflick": "bfi-imax"
+    },
+    {
+      "id": "picturehouse-central",
+      "name": "Picturehouse Central",
+      "site": "https://www.picturehouses.com/cinema/picturehouse-central",
+      "clusterflick": "picturehouse-central"
+    },
+    {
+      "id": "close-up-cinema",
+      "name": "Close-Up Cinema",
+      "site": "https://www.closeupfilmcentre.com/",
+      "clusterflick": "close-up-film-centre"
+    },
+    {
+      "id": "odeon-tottenham-court-road",
+      "name": "ODEON Tottenham Court Road",
+      "site": "https://www.odeon.co.uk/cinemas/london-tottenham-court-road/",
+      "clusterflick": "odeon-tottenham-court-road"
+    },
+    {
+      "id": "the-nickel",
+      "name": "The Nickel",
+      "site": "https://thenickel.co.uk/",
+      "clusterflick": "the-nickel"
+    },
+    {
+      "id": "beer-merchants-tap",
+      "name": "Beer Merchants Tap",
+      "site": "https://beermerchantstap.com/",
+      "clusterflick": "beer-merchants-tap"
+    },
+    {
+      "id": "rooftop-film-club-stratford",
+      "name": "Rooftop Film Club Stratford",
+      "site": "https://rooftopfilmclub.com/london/venue/stratford/"
+    }
+  ]
+}
