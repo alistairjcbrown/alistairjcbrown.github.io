@@ -1,0 +1,364 @@
+/* The cinema timeline.
+ *
+ * style.css is written for the one-page, dead-centred home page, so this file
+ * first undoes the handful of rules that fight a long scrolling document and
+ * then builds the ribbon on top. The palette, fonts and link treatment are
+ * inherited untouched - this should read as the same site.
+ *
+ * Those undo rules carry deliberately specific selectors (`body.cinema
+ * div.wrapper` rather than `.cinema-wrapper`): style.css states them as
+ * `div.wrapper` and `div`, which outrank a bare class however late this file
+ * is imported. */
+
+body.cinema {
+  display: block;
+  align-items: initial;
+  justify-content: initial;
+}
+
+/* reset.css sets `section { display: block }`, which beats the user agent's
+ * `[hidden] { display: none }`. Without this the year switcher shows every
+ * year at once. */
+.cinema [hidden] {
+  display: none !important;
+}
+
+body.cinema div.wrapper {
+  width: min(64em, 100%);
+  margin: 0 auto;
+  padding: 3em 1.5em 2em;
+  box-sizing: border-box;
+}
+
+/* style.css gives every div a bottom margin, top padding and - under 800px -
+ * a full width. Narrow that to the one div on this page that is not a layout
+ * wrapper. */
+.cinema div.year-tabs {
+  margin: 0 0 2.5em;
+  padding-top: 0;
+  width: auto;
+}
+
+.cinema-content {
+  text-align: left;
+}
+
+.cinema-header {
+  text-align: center;
+  margin-bottom: 2.5em;
+}
+
+.cinema h1 {
+  font-size: 3.2em;
+  margin-bottom: 0.5em;
+}
+
+.cinema-intro {
+  font-size: 1.15em;
+  line-height: 1.6;
+  max-width: 34em;
+  margin: 0 auto;
+  color: #b9b9c6;
+}
+
+.cinema-intro strong {
+  color: #fade05;
+  font-weight: 600;
+}
+
+/* Year switcher ---------------------------------------------------------- */
+
+.year-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6em;
+  margin-bottom: 2.5em;
+}
+
+.year-tab {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+  color: #b9b9c6;
+  background: transparent;
+  border: 2px solid rgba(185, 185, 198, 0.35);
+  border-radius: 2em;
+  padding: 0.45em 1.2em;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.year-tab:hover {
+  color: #fade05;
+  border-color: #fade05;
+}
+
+.year-tab.is-selected {
+  color: #010013;
+  background: #f12869;
+  border-color: #f12869;
+}
+
+.year-tab-now {
+  display: inline-block;
+  margin-left: 0.5em;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.75;
+}
+
+.year-tab:focus-visible,
+.film-link:focus-visible {
+  outline: 2px solid #319edb;
+  outline-offset: 3px;
+}
+
+/* Where the year stands -------------------------------------------------- */
+
+.year-standing {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.4em 1em;
+  margin: 0 0 2.5em;
+  padding-bottom: 1.5em;
+  border-bottom: 2px solid rgba(49, 158, 219, 0.35);
+  font-size: 1.1em;
+}
+
+.year-count {
+  font-family: "Montserrat", sans-serif;
+  color: #b9b9c6;
+}
+
+.year-count strong {
+  font-size: 1.9em;
+  font-weight: 700;
+  color: #f12869;
+}
+
+.year-note {
+  color: #fade05;
+  opacity: 0.9;
+}
+
+.year-empty {
+  text-align: center;
+  color: #b9b9c6;
+  font-size: 1.1em;
+}
+
+/* The ribbon ------------------------------------------------------------- */
+
+.month {
+  position: relative;
+  padding: 0 0 2.5em 2em;
+  border-left: 2px solid rgba(49, 158, 219, 0.3);
+}
+
+.month:last-child {
+  border-left-color: transparent;
+}
+
+.month-label {
+  font-size: 1.15em;
+  font-weight: 600;
+  color: #fade05;
+  margin: 0 0 1.2em;
+  line-height: 1;
+}
+
+/* The node on the spine. Drawn on the label rather than the section so it
+ * lines up with the text baseline however the month heading wraps. */
+.month-label::before {
+  content: "";
+  position: absolute;
+  left: -0.47em;
+  width: 0.75em;
+  height: 0.75em;
+  margin-top: 0.15em;
+  border-radius: 50%;
+  background: #f12869;
+  box-shadow: 0 0 0 4px #010013;
+}
+
+ul.films {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8.75em, 1fr));
+  gap: 1.6em 1.2em;
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+}
+
+ul.films > li.film {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  font-size: 1em;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.film-link,
+.film-link:link,
+.film-link:visited {
+  display: block;
+  border-bottom: 0;
+  color: inherit;
+}
+
+.film-poster {
+  display: block;
+  position: relative;
+  aspect-ratio: 2 / 3;
+  margin-bottom: 0.6em;
+  border-radius: 0.35em;
+  overflow: hidden;
+  background: #14131f;
+  border: 1px solid rgba(185, 185, 198, 0.18);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.film-poster img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.film-poster-missing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 2em;
+  opacity: 0.4;
+}
+
+.film-link:hover .film-poster {
+  transform: translateY(-4px);
+  border-color: #f12869;
+  box-shadow: 0 6px 20px rgba(241, 40, 105, 0.35);
+}
+
+.film-date {
+  display: block;
+  font-size: 0.8em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #319edb;
+}
+
+.film-title {
+  display: block;
+  font-size: 0.95em;
+  font-weight: 500;
+  color: #e5e5e5;
+  transition: color 0.2s ease;
+}
+
+.film-link:hover .film-title {
+  color: #fade05;
+}
+
+.film-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5em;
+  font-size: 0.85em;
+  color: #8f8fa0;
+}
+
+.film-rating {
+  color: #fade05;
+  letter-spacing: -0.05em;
+}
+
+.film-liked {
+  color: #f12869;
+}
+
+.film-venue {
+  margin: 0.35em 0 0;
+  font-size: 0.8em;
+  line-height: 1.3;
+  color: #8f8fa0;
+}
+
+.film-venue a,
+.film-venue a:link,
+.film-venue a:visited {
+  color: #8f8fa0;
+  border-bottom: 1px dotted rgba(143, 143, 160, 0.5);
+}
+
+.film-venue a:hover {
+  color: #319edb;
+  border-bottom-color: transparent;
+}
+
+/* Footer ----------------------------------------------------------------- */
+
+.cinema-footer {
+  margin-top: 1em;
+  padding-top: 2em;
+  border-top: 2px solid rgba(49, 158, 219, 0.35);
+  text-align: center;
+  color: #8f8fa0;
+}
+
+.cinema-footer p {
+  font-size: 0.95em;
+  margin-bottom: 0.6em;
+}
+
+@media screen and (max-width: 600px) {
+  .cinema-wrapper {
+    padding: 2em 1em 1.5em;
+  }
+
+  .cinema h1 {
+    font-size: 2.2em;
+  }
+
+  .cinema-intro {
+    font-size: 1em;
+  }
+
+  .month {
+    padding-left: 1.4em;
+  }
+
+  ul.films {
+    grid-template-columns: repeat(auto-fill, minmax(6.25em, 1fr));
+    gap: 1.2em 0.8em;
+  }
+
+  .year-tab {
+    padding: 0.4em 0.9em;
+    font-size: 0.95em;
+  }
+
+  .year-standing {
+    font-size: 1em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .film-link:hover .film-poster {
+    transform: none;
+  }
+}

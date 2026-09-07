@@ -1,0 +1,124 @@
+{
+  "_comment": "Letterboxd list slug -> how the venue is named and linked on the timeline. `clusterflick` is the venue slug on clusterflick.com; omit it where the venue has no page there. New lists are appended automatically by fetch-diary from the RSS feed; the site and clusterflick links are set by hand.",
+  "venues": [
+    {
+      "id": "bfi-imax",
+      "name": "BFI IMAX",
+      "site": "https://www.bfi.org.uk/bfi-imax",
+      "clusterflick": "bfi-imax"
+    },
+    {
+      "id": "bfi-southbank",
+      "name": "BFI Southbank",
+      "site": "https://whatson.bfi.org.uk/",
+      "clusterflick": "bfi-southbank"
+    },
+    {
+      "id": "barbican",
+      "name": "Barbican",
+      "site": "https://www.barbican.org.uk/whats-on/cinema",
+      "clusterflick": "the-barbican"
+    },
+    {
+      "id": "beer-merchants-tap",
+      "name": "Beer Merchants Tap",
+      "site": "https://beermerchantstap.com/",
+      "clusterflick": "beer-merchants-tap"
+    },
+    {
+      "id": "close-up-cinema",
+      "name": "Close-Up Cinema",
+      "site": "https://www.closeupfilmcentre.com/",
+      "clusterflick": "close-up-film-centre"
+    },
+    {
+      "id": "curzon-bloomsbury",
+      "name": "Curzon Bloomsbury",
+      "site": "https://www.curzon.com/venues/bloomsbury/",
+      "clusterflick": "curzon-bloomsbury"
+    },
+    {
+      "id": "curzon-hoxton",
+      "name": "Curzon Hoxton",
+      "site": "https://www.curzon.com/venues/hoxton/",
+      "clusterflick": "curzon-hoxton"
+    },
+    {
+      "id": "everyman-screen-on-the-green",
+      "name": "Everyman Screen on the Green",
+      "site": "https://www.everymancinema.com/venues-list/everyman-screen-on-the-green/",
+      "clusterflick": "everyman-screen-on-the-green"
+    },
+    {
+      "id": "everyman-stratford",
+      "name": "Everyman Stratford",
+      "site": "https://www.everymancinema.com/venues-list/everyman-stratford-international/",
+      "clusterflick": "everyman-stratford-international"
+    },
+    {
+      "id": "genesis-cinema",
+      "name": "Genesis Cinema",
+      "site": "https://genesiscinema.co.uk/",
+      "clusterflick": "genesis-cinema"
+    },
+    {
+      "id": "hackney-picturehouse",
+      "name": "Hackney Picturehouse",
+      "site": "https://www.picturehouses.com/cinema/hackney-picturehouse",
+      "clusterflick": "hackney-picturehouse"
+    },
+    {
+      "id": "odeon-tottenham-court-road",
+      "name": "ODEON Tottenham Court Road",
+      "site": "https://www.odeon.co.uk/cinemas/london-tottenham-court-road/",
+      "clusterflick": "odeon-tottenham-court-road"
+    },
+    {
+      "id": "picturehouse-central",
+      "name": "Picturehouse Central",
+      "site": "https://www.picturehouses.com/cinema/picturehouse-central",
+      "clusterflick": "picturehouse-central"
+    },
+    {
+      "id": "prince-charles-cinema",
+      "name": "Prince Charles Cinema",
+      "site": "https://princecharlescinema.com/",
+      "clusterflick": "prince-charles-cinema"
+    },
+    {
+      "id": "rio-cinema",
+      "name": "Rio Cinema",
+      "site": "https://riocinema.org.uk/",
+      "clusterflick": "rio-cinema"
+    },
+    {
+      "id": "rooftop-film-club-stratford",
+      "name": "Rooftop Film Club Stratford",
+      "site": "https://rooftopfilmclub.com/london/venue/stratford/"
+    },
+    {
+      "id": "the-castle-cinema",
+      "name": "The Castle Cinema",
+      "site": "https://thecastlecinema.com/",
+      "clusterflick": "the-castle-cinema"
+    },
+    {
+      "id": "the-cinema-at-selfridges",
+      "name": "The Cinema at Selfridges",
+      "site": "https://www.selfridges.com/GB/en/features/thecinema/",
+      "clusterflick": "the-cinema-at-selfridges"
+    },
+    {
+      "id": "the-nickel",
+      "name": "The Nickel",
+      "site": "https://thenickel.co.uk/",
+      "clusterflick": "the-nickel"
+    },
+    {
+      "id": "vue-westfield-stratford",
+      "name": "Vue Westfield Stratford",
+      "site": "https://www.myvue.com/cinema/westfield-stratford",
+      "clusterflick": "vue-westfield-stratford"
+    }
+  ]
+}

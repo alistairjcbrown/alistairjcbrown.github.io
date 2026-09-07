@@ -3,6 +3,15 @@
   "description": "Personal website",
   "private": true,
   "author": "Alistair Brown <github@alistairjcbrown.com>",
+  "scripts": {
+    "fetch-diary": "node scripts/fetch-diary.mjs",
+    "import-export": "node scripts/import-export.mjs",
+    "enrich-diary": "node scripts/enrich-diary.mjs",
+    "build-page": "node scripts/build-page.mjs",
+    "build": "npm run build-page && parcel build src/index.html src/cinema/index.html --dist-dir ./docs",
+    "dev": "npm run build-page && parcel src/index.html src/cinema/index.html",
+    "format": "prettier ./src ./scripts --write"
+  },
   "devDependencies": {
     "parcel": "^2.16.0"
   },

@@ -1,0 +1,64 @@
+name: Update cinema timeline
+
+# Letterboxd's RSS feed is a rolling window of the ~50 most recent entries, so
+# this has to run often enough that nothing falls out of the window before it
+# is picked up. Nightly leaves an enormous margin.
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+# The job commits to the branch it runs on, so two overlapping runs would race
+# each other's push. Let an in-flight run finish rather than cancelling it.
+concurrency:
+  group: update-cinema
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Only the scheduled and manual runs go out to Letterboxd. A push has
+      # already got whatever the last fetch stored, and rebuilding from it
+      # keeps a code change from silently depending on the feed being up.
+      - name: Fetch new diary entries
+        if: github.event_name != 'push'
+        run: npm run fetch-diary
+
+      - name: Fill in any missing posters
+        if: github.event_name != 'push'
+        run: npm run enrich-diary
+
+      - run: npm run build
+
+      - name: Commit the rebuilt site
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/diary.json docs
+          if git diff --staged --quiet; then
+            echo "Nothing changed."
+            exit 0
+          fi
+          git commit -m "Update cinema timeline"
+          # The scheduled run and a push to main can land together; rebase onto
+          # whatever arrived first rather than failing the run.
+          for attempt in 1 2 3; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            sleep $((attempt * 5))
+          done
+          exit 1
