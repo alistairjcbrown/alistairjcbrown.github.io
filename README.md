@@ -73,11 +73,16 @@ an imported entry and the same viewing from the feed collapse into one.
 
 ### Venues
 
-`src/data/venues.json` maps a Letterboxd list slug to a display name and,
-where there is one, the venue's page on [Clusterflick](https://clusterflick.com).
-Add a cinema by adding its list slug there. A list carries no dates, so this
-only ever labels a viewing the diary already knows about — it never decides
-whether something counts.
+Adding a film to a Letterboxd list named after the cinema is what gives a
+screening its venue. The lists are discovered from the RSS feed, which
+publishes every one of them — `/lists/page/2/` is behind the Cloudflare
+challenge, so reading the lists page only ever finds the first twelve. A new
+cinema list is appended to `src/data/venues.json` automatically; the `site` and
+`clusterflick` links on each entry are set by hand.
+
+A list carries no dates, so this only ever labels a viewing the diary already
+knows about — it never decides whether something counts, and it cannot tell two
+viewings of the same film apart.
 
 ### Automation
 

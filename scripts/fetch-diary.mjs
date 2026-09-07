@@ -8,12 +8,13 @@
 
 import { readDiary, writeDiary, mergeEntries } from "./lib/diary.mjs";
 import { RSS_URL, fetchText, parseDiaryFeed } from "./lib/letterboxd.mjs";
-import { attachVenues } from "./lib/venues.mjs";
+import { attachVenues, parseVenueLists } from "./lib/venues.mjs";
 
 const diary = await readDiary();
 const before = diary.entries.length;
 
-const entries = parseDiaryFeed(await fetchText(RSS_URL));
+const feed = await fetchText(RSS_URL);
+const entries = parseDiaryFeed(feed);
 if (entries.length === 0) {
   // An empty parse means the feed shape changed under us. Overwriting a good
   // store with nothing would be silent data loss, so stop instead.
@@ -22,7 +23,12 @@ if (entries.length === 0) {
   );
 }
 
-diary.entries = await attachVenues(mergeEntries(diary.entries, entries));
+// The same feed publishes every venue list, so a cinema added on Letterboxd
+// turns up here without anyone editing the registry.
+diary.entries = await attachVenues(
+  mergeEntries(diary.entries, entries),
+  parseVenueLists(feed),
+);
 diary.updated = new Date().toISOString().slice(0, 10);
 await writeDiary(diary);
 
