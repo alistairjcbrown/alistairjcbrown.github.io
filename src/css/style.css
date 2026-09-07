@@ -69,7 +69,7 @@ p {
 .avatar-flip {
   width: 14.5em;
   height: 14.5em;
-  margin: 2.5em auto 0 1.5em;
+  margin: 7.1em auto 0 1.5em;
   float: right;
 }
 
@@ -320,7 +320,7 @@ div {
   .avatar-flip {
     width: 180px;
     height: 180px;
-    margin: 2.8em 0.2em 0 0.4em;
+    margin: 5.6em 0.2em 0 0.4em;
   }
 
   h1 {
@@ -361,7 +361,7 @@ div {
   .avatar-flip {
     width: 180px;
     height: 180px;
-    margin: 1.4em auto;
+    margin: -2em auto 1.4em;
     float: none;
   }
 
