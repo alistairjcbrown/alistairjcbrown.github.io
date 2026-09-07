@@ -7,27 +7,56 @@
 // forever, because the answer never changes.
 
 import { readDiary, writeDiary } from "./lib/diary.mjs";
-import { fetchText, decodeEntities } from "./lib/letterboxd.mjs";
+import {
+  fetchText,
+  decodeEntities,
+  resolveSlugFromUri,
+} from "./lib/letterboxd.mjs";
 
-function slugCandidates(entry) {
-  const base = entry.title
+// Letterboxd's slugs follow conventions that only show up when they bite:
+// `&` is dropped rather than spelled out (Batman & Robin is `batman-robin`,
+// while `batman-and-robin` is the 1949 serial), and periods vanish without
+// leaving a separator (`Doctor Butcher M.D.` is `doctor-butcher-md`, not
+// `...-m-d`). Neither rule is universal, so try each reading rather than
+// picking one, and let the year check in resolveFilm decide between them.
+function slugify(title, { ampersand, periods }) {
+  return title
     .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
+    .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
     .replace(/['’]/g, "")
-    .replace(/&/g, "and")
+    .replace(/&/g, ampersand === "and" ? " and " : " ")
+    .replace(/\./g, periods === "strip" ? "" : " ")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
+}
 
-  // Letterboxd disambiguates a reused title by appending the year, so try the
-  // bare slug first and the year-suffixed one second.
-  return entry.slug
-    ? [entry.slug]
-    : [base, entry.year && `${base}-${entry.year}`].filter(Boolean);
+function slugCandidates(entry) {
+  if (entry.slug) return [entry.slug];
+
+  const readings = [
+    { ampersand: "and", periods: "separate" },
+    { ampersand: "drop", periods: "separate" },
+    { ampersand: "and", periods: "strip" },
+    { ampersand: "drop", periods: "strip" },
+  ].map((options) => slugify(entry.title, options));
+
+  // Letterboxd disambiguates a reused title by appending the year, so every
+  // reading is worth trying bare first and year-suffixed second.
+  const candidates = [
+    ...readings,
+    ...(entry.year ? readings.map((slug) => `${slug}-${entry.year}`) : []),
+  ];
+
+  return [...new Set(candidates)];
 }
 
 async function resolveFilm(entry) {
-  for (const slug of slugCandidates(entry)) {
+  // The export's own link is exact, so it is tried ahead of any reading of the
+  // title; the readings are the fallback for an entry that arrived without one.
+  const fromUri = await resolveSlugFromUri(entry.uri);
+
+  for (const slug of fromUri ? [fromUri] : slugCandidates(entry)) {
     let html;
     try {
       html = await fetchText(`https://letterboxd.com/film/${slug}/`);

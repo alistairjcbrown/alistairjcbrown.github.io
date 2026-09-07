@@ -117,3 +117,24 @@ export function parseDiaryFeed(xml) {
     })
     .filter((entry) => entry?.date && entry.slug);
 }
+
+// A Letterboxd data export identifies each viewing by a boxd.it short link,
+// which redirects to the member's page for that film. The slug is in the
+// redirect target, so following one answers exactly what guessing at a slug
+// from the title can only approximate - and it is the one route that works for
+// an event listing like a double bill, whose title resembles no slug at all.
+// Only the Location header is read; the page behind it is not fetched.
+export async function resolveSlugFromUri(uri) {
+  if (!uri?.includes("boxd.it")) return undefined;
+
+  try {
+    const response = await fetch(uri, {
+      redirect: "manual",
+      signal: AbortSignal.timeout(20000),
+      headers: { "User-Agent": USER_AGENT },
+    });
+    return response.headers.get("location")?.match(/\/film\/([^/]+)\//)?.[1];
+  } catch {
+    return undefined;
+  }
+}
