@@ -1,6 +1,20 @@
 {
   "entries": [
     {
+      "letterboxdId": "letterboxd-watch-1497611295",
+      "date": "2026-09-15",
+      "title": "Teenage Sex and Death at Camp Miasma",
+      "year": 2026,
+      "slug": "teenage-sex-and-death-at-camp-miasma",
+      "uri": "https://letterboxd.com/alistairjcbrown/film/teenage-sex-and-death-at-camp-miasma/",
+      "rating": 3,
+      "rewatch": false,
+      "liked": false,
+      "tmdbId": 1240889,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/1/1/2/3/8/6/7/1123867-teenage-sex-and-death-at-camp-miasma-0-600-0-900-crop.jpg?v=f6059120f8",
+      "venue": "picturehouse-central"
+    },
+    {
       "letterboxdId": "letterboxd-watch-1496469239",
       "date": "2026-09-14",
       "title": "Tokyo Story",
@@ -1479,5 +1493,5 @@
       "venue": "hackney-picturehouse"
     }
   ],
-  "updated": "2026-09-14"
+  "updated": "2026-09-16"
 }
