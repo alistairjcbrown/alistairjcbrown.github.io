@@ -1,6 +1,20 @@
 {
   "entries": [
     {
+      "letterboxdId": "letterboxd-watch-1504041641",
+      "date": "2026-09-20",
+      "title": "The Evil Dead",
+      "year": 1981,
+      "slug": "the-evil-dead",
+      "uri": "https://letterboxd.com/alistairjcbrown/film/the-evil-dead/",
+      "rating": 3,
+      "rewatch": false,
+      "liked": false,
+      "tmdbId": 764,
+      "poster": "https://a.ltrbxd.com/resized/sm/upload/c7/4g/ae/zn/7cpSdCrBY7UhiygkcP57dpixXsW-0-600-0-900-crop.jpg?v=1525e98692",
+      "venue": "the-cinema-museum"
+    },
+    {
       "letterboxdId": "letterboxd-watch-1497611295",
       "date": "2026-09-15",
       "title": "Teenage Sex and Death at Camp Miasma",
@@ -1493,5 +1507,5 @@
       "venue": "hackney-picturehouse"
     }
   ],
-  "updated": "2026-09-16"
+  "updated": "2026-09-21"
 }

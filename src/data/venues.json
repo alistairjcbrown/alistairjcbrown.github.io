@@ -2,6 +2,17 @@
   "_comment": "Letterboxd list slug -> how the venue is named and linked on the timeline. `clusterflick` is the venue slug on clusterflick.com; omit it where the venue has no page there. New lists are appended automatically by fetch-diary from the RSS feed; the site and clusterflick links are set by hand.",
   "venues": [
     {
+      "id": "barbican",
+      "name": "Barbican",
+      "clusterflick": "the-barbican",
+      "site": "https://www.barbican.org.uk/whats-on/cinema"
+    },
+    {
+      "id": "beer-merchants-tap",
+      "name": "Beer Merchants Tap",
+      "clusterflick": "beer-merchants-tap"
+    },
+    {
       "id": "bfi-imax",
       "name": "BFI IMAX",
       "clusterflick": "bfi-imax",
@@ -12,17 +23,6 @@
       "name": "BFI Southbank",
       "clusterflick": "bfi-southbank",
       "site": "https://whatson.bfi.org.uk/Online/default.asp"
-    },
-    {
-      "id": "barbican",
-      "name": "Barbican",
-      "clusterflick": "the-barbican",
-      "site": "https://www.barbican.org.uk/whats-on/cinema"
-    },
-    {
-      "id": "beer-merchants-tap",
-      "name": "Beer Merchants Tap",
-      "clusterflick": "beer-merchants-tap"
     },
     {
       "id": "cineworld-leicester-square",
@@ -137,6 +137,11 @@
       "name": "The Cinema at Selfridges",
       "clusterflick": "the-cinema-at-selfridges",
       "site": "https://www.olympicstudios.com/pages/the-cinema-at-selfridges"
+    },
+    {
+      "id": "the-cinema-museum",
+      "name": "The Cinema Museum",
+      "site": "https://cinemamuseum.org.uk/"
     },
     {
       "id": "the-nickel",
