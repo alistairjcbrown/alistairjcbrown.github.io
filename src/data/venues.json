@@ -141,6 +141,7 @@
     {
       "id": "the-cinema-museum",
       "name": "The Cinema Museum",
+      "clusterflick": "the-cinema-museum",
       "site": "https://cinemamuseum.org.uk/"
     },
     {
