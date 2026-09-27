@@ -85,6 +85,11 @@
       "site": "https://www.picturehouses.com/cinema/hackney-picturehouse"
     },
     {
+      "id": "odeon-luxe-haymarket",
+      "name": "ODEON Luxe Haymarket",
+      "site": "https://www.odeon.co.uk/cinemas/london-haymarket"
+    },
+    {
       "id": "odeon-tottenham-court-road",
       "name": "ODEON Tottenham Court Road",
       "clusterflick": "odeon-tottenham-court-road",
