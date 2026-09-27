@@ -87,6 +87,7 @@
     {
       "id": "odeon-luxe-haymarket",
       "name": "ODEON Luxe Haymarket",
+      "clusterflick": "odeon-luxe-haymarket",
       "site": "https://www.odeon.co.uk/cinemas/london-haymarket"
     },
     {
