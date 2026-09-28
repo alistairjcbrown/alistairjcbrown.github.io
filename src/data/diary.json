@@ -1,6 +1,20 @@
 {
   "entries": [
     {
+      "letterboxdId": "letterboxd-watch-1513988672",
+      "date": "2026-09-27",
+      "title": "Her Private Hell",
+      "year": 2026,
+      "slug": "her-private-hell-2026",
+      "uri": "https://letterboxd.com/alistairjcbrown/film/her-private-hell-2026/",
+      "rating": 1,
+      "rewatch": false,
+      "liked": false,
+      "tmdbId": 1469342,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/1/3/4/6/0/5/7/1346057-her-private-hell-2026-0-600-0-900-crop.jpg?v=be8c2e6c35",
+      "venue": "curzon-hoxton"
+    },
+    {
       "letterboxdId": "letterboxd-watch-1511831245",
       "date": "2026-09-26",
       "title": "Coyote vs. Acme",
@@ -1535,5 +1549,5 @@
       "venue": "hackney-picturehouse"
     }
   ],
-  "updated": "2026-09-27"
+  "updated": "2026-09-28"
 }
