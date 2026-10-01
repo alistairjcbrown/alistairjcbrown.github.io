@@ -1,6 +1,20 @@
 {
   "entries": [
     {
+      "letterboxdId": "letterboxd-watch-1517947263",
+      "date": "2026-09-30",
+      "title": "Manhunter",
+      "year": 1986,
+      "slug": "manhunter",
+      "uri": "https://letterboxd.com/alistairjcbrown/film/manhunter/",
+      "rating": 3,
+      "rewatch": false,
+      "liked": false,
+      "tmdbId": 11454,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/4/5/2/8/8/45288-manhunter-0-600-0-900-crop.jpg?v=082953f1e1",
+      "venue": "everyman-stratford"
+    },
+    {
       "letterboxdId": "letterboxd-watch-1513988672",
       "date": "2026-09-27",
       "title": "Her Private Hell",
@@ -1549,5 +1563,5 @@
       "venue": "hackney-picturehouse"
     }
   ],
-  "updated": "2026-09-28"
+  "updated": "2026-10-01"
 }
