@@ -1,6 +1,31 @@
 {
   "entries": [
     {
+      "letterboxdId": "letterboxd-watch-1521363042",
+      "date": "2026-10-02",
+      "title": "The Duties of a Lighthouse Keeper",
+      "year": 2026,
+      "slug": "the-duties-of-a-lighthouse-keeper",
+      "uri": "https://letterboxd.com/alistairjcbrown/film/the-duties-of-a-lighthouse-keeper/",
+      "rating": 5,
+      "rewatch": false,
+      "liked": false,
+      "tmdbId": 1767002
+    },
+    {
+      "letterboxdId": "letterboxd-watch-1520467050",
+      "date": "2026-10-02",
+      "title": "The Intimacy Coordinator",
+      "year": 2026,
+      "slug": "the-intimacy-coordinator",
+      "uri": "https://letterboxd.com/alistairjcbrown/film/the-intimacy-coordinator/",
+      "rating": 4,
+      "rewatch": false,
+      "liked": false,
+      "tmdbId": 1495495,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/1/3/7/2/1/0/2/1372102-the-intimacy-coordinator-0-600-0-900-crop.jpg?v=51496500ad"
+    },
+    {
       "letterboxdId": "letterboxd-watch-1517947263",
       "date": "2026-09-30",
       "title": "Manhunter",
@@ -1563,5 +1588,5 @@
       "venue": "hackney-picturehouse"
     }
   ],
-  "updated": "2026-10-01"
+  "updated": "2026-10-03"
 }
