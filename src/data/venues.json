@@ -133,6 +133,11 @@
       "site": "https://www.scarlettmalone.com/subtitlecinema"
     },
     {
+      "id": "the-bath-house",
+      "name": "The Bath House",
+      "site": "https://thebathhouse.co/"
+    },
+    {
       "id": "the-castle-cinema",
       "name": "The Castle Cinema",
       "clusterflick": "the-castle-cinema",
