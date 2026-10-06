@@ -28,7 +28,10 @@ npm run format
 `/cinema/` is a chronological ribbon of every film seen in a cinema since
 moving to London on 27 August 2024, against a challenge of 52 a year. A
 challenge year runs from one anniversary of that date to the next; the page
-opens on the current one and the tabs switch between them.
+opens on the current one and the tabs switch between them. Films seen on the
+same day at the same cinema are grouped into one double-width card with their
+posters fanned together, so double bills, marathons and festival days read as
+one outing.
 
 ### Where the data comes from
 

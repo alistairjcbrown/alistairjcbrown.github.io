@@ -66,42 +66,112 @@ function groupByMonth(entries) {
   return months;
 }
 
-function renderEntry(entry, venues) {
-  const venue = venues.get(entry.venue);
-  const rating = stars(entry.rating);
+function renderVenue(venue) {
+  if (!venue) return "";
+  return `<p class="film-venue">${
+    venue.clusterflick
+      ? `<a href="https://clusterflick.com/venues/${escape(venue.clusterflick)}/">${escape(venue.name)}</a>`
+      : escape(venue.name)
+  }</p>`;
+}
 
+const filmHref = (entry) =>
+  entry.uri ?? `https://letterboxd.com/film/${entry.slug}/`;
+
+function renderPoster(entry) {
+  return entry.poster
+    ? `<img src="${escape(entry.poster)}" alt="" loading="lazy" decoding="async" width="140" height="210" />`
+    : `<span class="film-poster-missing" aria-hidden="true">🎬</span>`;
+}
+
+function renderMeta(entry) {
+  const rating = stars(entry.rating);
+  return `<span class="film-meta">${entry.year ? `<span class="film-year">${entry.year}</span>` : ""}${
+    rating
+      ? `<span class="film-rating" title="${entry.rating} out of 5">${rating}</span>`
+      : ""
+  }${entry.liked ? `<span class="film-liked" title="Liked">♥</span>` : ""}${
+    entry.rewatch ? `<span class="film-rewatch" title="Rewatch">↻</span>` : ""
+  }</span>`;
+}
+
+function renderEntry(entry, venues) {
   return `
             <li class="film">
-              <a class="film-link" href="${escape(entry.uri ?? `https://letterboxd.com/film/${entry.slug}/`)}">
-                <span class="film-poster">${
-                  entry.poster
-                    ? `<img src="${escape(entry.poster)}" alt="" loading="lazy" decoding="async" width="140" height="210" />`
-                    : `<span class="film-poster-missing" aria-hidden="true">🎬</span>`
-                }</span>
+              <a class="film-link" href="${escape(filmHref(entry))}">
+                <span class="film-poster">${renderPoster(entry)}</span>
                 <span class="film-detail">
                   <span class="film-date">${escape(formatDay(entry.date))}</span>
                   <span class="film-title">${escape(entry.title)}</span>
-                  <span class="film-meta">${entry.year ? `<span class="film-year">${entry.year}</span>` : ""}${
-                    rating
-                      ? `<span class="film-rating" title="${entry.rating} out of 5">${rating}</span>`
-                      : ""
-                  }${entry.liked ? `<span class="film-liked" title="Liked">♥</span>` : ""}${
-                    entry.rewatch
-                      ? `<span class="film-rewatch" title="Rewatch">↻</span>`
-                      : ""
-                  }</span>
+                  ${renderMeta(entry)}
                 </span>
               </a>
-              ${
-                venue
-                  ? `<p class="film-venue">${
-                      venue.clusterflick
-                        ? `<a href="https://clusterflick.com/venues/${escape(venue.clusterflick)}/">${escape(venue.name)}</a>`
-                        : escape(venue.name)
-                    }</p>`
-                  : ""
-              }
+              ${renderVenue(venues.get(entry.venue))}
             </li>`;
+}
+
+// Several films on one day at one cinema were a double bill, an all-nighter
+// or a festival block, so they read as one outing: the posters fan out like a
+// hand of tickets in a card twice the width of a single film. The posters
+// are decorative duplicates of the title links below them, so they stay out of
+// the tab order and the accessibility tree.
+function billName(count) {
+  if (count === 2) return "Double bill";
+  if (count === 3) return "Triple bill";
+  return `${count}-film marathon`;
+}
+
+function renderMarathon(entries, venues) {
+  const count = entries.length;
+  const posters = entries
+    .map(
+      (entry, index) => `
+                <a class="film-poster marathon-poster" href="${escape(filmHref(entry))}" style="--i: ${index}" tabindex="-1" aria-hidden="true">${renderPoster(entry)}</a>`,
+    )
+    .join("");
+  const titles = entries
+    .map(
+      (entry) => `
+                  <li>
+                    <a class="film-link" href="${escape(filmHref(entry))}"><span class="film-title">${escape(entry.title)}</span></a>
+                    ${renderMeta(entry)}
+                  </li>`,
+    )
+    .join("");
+
+  return `
+            <li class="film marathon" style="--n: ${count}">
+              <span class="marathon-posters">${posters}
+              </span>
+              <span class="film-date">${escape(formatDay(entries[0].date))} <span class="marathon-name">${billName(count)}</span></span>
+              <ol class="marathon-films">${titles}
+              </ol>
+              ${renderVenue(venues.get(entries[0].venue))}
+            </li>`;
+}
+
+// Groups same-day, same-cinema viewings in the order the diary lists them.
+// A film with no venue is never grouped: two unknowns are not the same place.
+function groupOutings(entries) {
+  const outings = [];
+  const byKey = new Map();
+  for (const entry of entries) {
+    const key = entry.venue && `${entry.date}|${entry.venue}`;
+    if (key && byKey.has(key)) {
+      byKey.get(key).push(entry);
+      continue;
+    }
+    const outing = [entry];
+    outings.push(outing);
+    if (key) byKey.set(key, outing);
+  }
+  return outings;
+}
+
+function renderOuting(outing, venues) {
+  return outing.length > 1
+    ? renderMarathon(outing, venues)
+    : renderEntry(outing[0], venues);
 }
 
 function renderYear(year, venues, today) {
@@ -121,7 +191,9 @@ function renderYear(year, venues, today) {
       (month) => `
         <section class="month">
           <h3 class="month-label"><span>${escape(month.label)}</span></h3>
-          <ul class="films">${month.entries.map((entry) => renderEntry(entry, venues)).join("")}
+          <ul class="films">${groupOutings(month.entries)
+            .map((outing) => renderOuting(outing, venues))
+            .join("")}
           </ul>
         </section>`,
     )
