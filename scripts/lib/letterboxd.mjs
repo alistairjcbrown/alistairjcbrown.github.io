@@ -84,15 +84,19 @@ function tag(block, name) {
   return match ? decodeEntities(match[1].trim()) : undefined;
 }
 
-// The feed mixes diary entries (guid `letterboxd-watch-*`) with published lists
-// (`letterboxd-list-*`). Only the former are viewings.
+// The feed mixes diary entries with published lists (`letterboxd-list-*`). A
+// diary entry is `letterboxd-watch-*` until it carries a review, at which point
+// Letterboxd republishes it as `letterboxd-review-*` - same viewing, same
+// fields. Both are viewings; a review with no watched date is dropped below.
 export function parseDiaryFeed(xml) {
   const items = xml.match(/<item>[\s\S]*?<\/item>/g) ?? [];
 
   return items
     .map((item) => {
       const letterboxdId = tag(item, "guid");
-      if (!letterboxdId?.includes("letterboxd-watch")) return undefined;
+      if (!/letterboxd-(watch|review)-/.test(letterboxdId ?? "")) {
+        return undefined;
+      }
 
       const uri = tag(item, "link");
       const rating = tag(item, "letterboxd:memberRating");
