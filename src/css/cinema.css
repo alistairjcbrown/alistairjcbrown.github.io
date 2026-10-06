@@ -322,6 +322,89 @@ ul.films > li.film {
   border-bottom-color: transparent;
 }
 
+/* Double bills and marathons ----------------------------------------------
+ *
+ * Films seen back to back at one cinema share a card two columns wide. The
+ * posters fan across it, overlapping and tilted, so the group reads as one
+ * outing at a glance. Each poster is a fixed share of the card (--w), and the
+ * fan, laid from the left like the rest of the grid, spreads no wider than
+ * the card allows: a double bill overlaps by a little over a third, a
+ * five-film marathon packs tighter. All of it is worked
+ * out from --n (films in the group) and --i (this poster's place in it). */
+
+ul.films > li.marathon {
+  grid-column: span 2;
+}
+
+.marathon-posters {
+  --w: 0.5;
+  --room: calc(1 / var(--w) - 1);
+  --step: min(var(--room) / max(var(--n) - 1, 1), 0.62);
+  display: block;
+  position: relative;
+  margin-bottom: 0.6em;
+}
+
+/* Holds the card open to one poster's height; the posters themselves are all
+ * absolutely placed. */
+.marathon-posters::before {
+  content: "";
+  display: block;
+  width: calc(var(--w) * 100%);
+  aspect-ratio: 2 / 3;
+}
+
+.film-poster.marathon-poster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(var(--w) * 100%);
+  margin: 0;
+  z-index: var(--i);
+  transform: translateX(calc(var(--i) * var(--step) * 100%))
+    rotate(calc((var(--i) - (var(--n) - 1) / 2) * 10deg / var(--n)));
+  box-shadow: -4px 4px 14px rgba(1, 0, 19, 0.6);
+  transition:
+    translate 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.film-poster.marathon-poster:hover {
+  z-index: 10;
+  translate: 0 -6px;
+  border-color: #f12869;
+  box-shadow: 0 6px 20px rgba(241, 40, 105, 0.35);
+}
+
+.marathon-name {
+  margin-left: 0.4em;
+  padding: 0.1em 0.5em;
+  border-radius: 1em;
+  background: rgba(241, 40, 105, 0.18);
+  color: #f12869;
+  white-space: nowrap;
+}
+
+ol.marathon-films {
+  margin: 0.15em 0 0;
+  padding: 0;
+  font-size: 1em;
+}
+
+ol.marathon-films > li {
+  list-style: none;
+  margin: 0 0 0.3em;
+  padding: 0;
+  width: auto;
+  font-size: 1em;
+  text-align: left;
+}
+
+ol.marathon-films .film-link {
+  display: inline;
+}
+
 /* The cinemas list --------------------------------------------------------- */
 
 ul.venues {
@@ -460,5 +543,9 @@ li.venue:hover .venue-bar {
 @media (prefers-reduced-motion: reduce) {
   .film-link:hover .film-poster {
     transform: none;
+  }
+
+  .film-poster.marathon-poster:hover {
+    translate: none;
   }
 }
