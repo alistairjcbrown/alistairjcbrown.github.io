@@ -160,6 +160,11 @@ body.cinema div.wrapper {
   opacity: 0.9;
 }
 
+.year-venues {
+  color: #b9b9c6;
+  font-size: 0.9em;
+}
+
 .year-empty {
   text-align: center;
   color: #b9b9c6;
