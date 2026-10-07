@@ -37,6 +37,10 @@
       "site": "https://www.closeupfilmcentre.com"
     },
     {
+      "id": "coldharbour-blue",
+      "name": "Coldharbour Blue"
+    },
+    {
       "id": "curzon-bloomsbury",
       "name": "Curzon Bloomsbury",
       "clusterflick": "curzon-bloomsbury",

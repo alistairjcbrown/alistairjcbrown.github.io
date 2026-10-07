@@ -1,6 +1,34 @@
 {
   "entries": [
     {
+      "letterboxdId": "letterboxd-watch-1527996691",
+      "date": "2026-10-07",
+      "title": "Blood Feast",
+      "year": 1963,
+      "slug": "blood-feast",
+      "uri": "https://letterboxd.com/alistairjcbrown/film/blood-feast/",
+      "rating": 2,
+      "rewatch": false,
+      "liked": false,
+      "tmdbId": 28172,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/3/3/8/5/9/33859-blood-feast-0-600-0-900-crop.jpg?v=b5d9197553",
+      "venue": "coldharbour-blue"
+    },
+    {
+      "letterboxdId": "letterboxd-watch-1527996535",
+      "date": "2026-10-07",
+      "title": "Mau Mau Sex Sex",
+      "year": 2001,
+      "slug": "mau-mau-sex-sex",
+      "uri": "https://letterboxd.com/alistairjcbrown/film/mau-mau-sex-sex/",
+      "rating": 2,
+      "rewatch": false,
+      "liked": false,
+      "tmdbId": 87285,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/7/3/7/8/5/73785-mau-mau-sex-sex-0-600-0-900-crop.jpg?v=03bdd60de8",
+      "venue": "coldharbour-blue"
+    },
+    {
       "letterboxdId": "letterboxd-review-1525582205",
       "date": "2026-10-05",
       "title": "Hope",
@@ -1605,5 +1633,5 @@
       "venue": "hackney-picturehouse"
     }
   ],
-  "updated": "2026-10-06"
+  "updated": "2026-10-07"
 }
