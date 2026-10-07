@@ -174,8 +174,41 @@ function renderOuting(outing, venues) {
     : renderEntry(outing[0], venues);
 }
 
-function renderYear(year, venues, today) {
+// The date of the first film seen at each venue, across the whole diary, so a
+// year can tell a cinema it was the first to reach from one it went back to.
+function firstVisits(entries) {
+  const first = new Map();
+  for (const entry of entries) {
+    if (entry.venue && !(first.get(entry.venue) <= entry.date))
+      first.set(entry.venue, entry.date);
+  }
+  return first;
+}
+
+// How many cinemas the year took in, and how many of those it was the first to
+// reach. A film with no venue counts towards neither.
+function describeVenues(year, firstVisit) {
+  const visited = new Set(
+    year.entries.map((entry) => entry.venue).filter(Boolean),
+  );
+  if (visited.size === 0) return "";
+  const fresh = [...visited].filter((venue) => {
+    const date = firstVisit.get(venue);
+    return date >= year.start && date < year.end;
+  }).length;
+  const cinemas = `${visited.size} ${visited.size === 1 ? "cinema" : "cinemas"}`;
+  const firsts =
+    fresh === 0
+      ? "no first visits"
+      : fresh === visited.size && fresh > 1
+        ? "all first visits"
+        : `${fresh} first ${fresh === 1 ? "visit" : "visits"}`;
+  return `${cinemas} · ${firsts}`;
+}
+
+function renderYear(year, venues, today, firstVisit) {
   const count = year.entries.length;
+  const venueSummary = describeVenues(year, firstVisit);
   const pace = paceFor(year, today);
 
   // A finished year states its total; the year in progress states where it is
@@ -203,7 +236,12 @@ function renderYear(year, venues, today) {
       <section class="panel year" id="year-${year.index}" data-panel="year-${year.index}"${year.current ? "" : " hidden"}>
         <p class="year-standing">
           <span class="year-count"><strong>${count}</strong> of ${CHALLENGE_TARGET}</span>
-          <span class="year-note">${escape(standing)}</span>
+          <span class="year-note">${escape(standing)}</span>${
+            venueSummary
+              ? `
+          <span class="year-venues">${escape(venueSummary)}</span>`
+              : ""
+          }
         </p>
         ${
           count === 0
@@ -285,6 +323,7 @@ const venueMap = new Map(venues.map((venue) => [venue.id, venue]));
 
 const entries = diary.entries.filter((entry) => entry.date >= CHALLENGE_START);
 const years = challengeYears(entries, today);
+const firstVisit = firstVisits(diary.entries);
 
 function renderTab({ id, label, extra = "", selected = false }) {
   return `
@@ -312,8 +351,9 @@ const html = (await readFile(TEMPLATE, "utf8"))
   .replace("{{TABS}}", tabs)
   .replace(
     "{{YEARS}}",
-    years.map((year) => renderYear(year, venueMap, today)).join("") +
-      renderCinemas(entries, venues),
+    years
+      .map((year) => renderYear(year, venueMap, today, firstVisit))
+      .join("") + renderCinemas(entries, venues),
   )
   .replace(/{{TOTAL}}/g, String(total))
   .replace(/{{UPDATED}}/g, escape(diary.updated ?? today));
