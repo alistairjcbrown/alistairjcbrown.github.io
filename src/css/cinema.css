@@ -365,6 +365,9 @@ ul.films > li.marathon {
   left: 0;
   width: calc(var(--w) * 100%);
   margin: 0;
+  /* These posters are links themselves rather than sitting inside a
+   * .film-link, so put back the border the site-wide link styles override. */
+  border: 1px solid rgba(185, 185, 198, 0.18);
   z-index: var(--i);
   transform: translateX(calc(var(--i) * var(--step) * 100%))
     rotate(calc((var(--i) - (var(--n) - 1) / 2) * 10deg / var(--n)));
