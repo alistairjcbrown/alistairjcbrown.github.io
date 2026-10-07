@@ -38,7 +38,8 @@
     },
     {
       "id": "coldharbour-blue",
-      "name": "Coldharbour Blue"
+      "name": "Coldharbour Blue",
+      "clusterflick": "coldharbour-blue"
     },
     {
       "id": "curzon-bloomsbury",
