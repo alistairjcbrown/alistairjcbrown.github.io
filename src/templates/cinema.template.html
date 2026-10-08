@@ -42,14 +42,35 @@
           <p class="cinema-intro">
             I moved to London on 27&nbsp;August&nbsp;2024 and set myself a
             challenge: fifty-two films a year, in&nbsp;a&nbsp;cinema.
-            <br />A year runs August to August. Here&nbsp;are all
+            <br /><span data-mode="challenge"
+              >A year runs August to August.</span
+            ><span data-mode="calendar" hidden>Shown January to December.</span>
+            Here&nbsp;are all
             <strong>{{TOTAL}}</strong> of&nbsp;them&nbsp;🎬
           </p>
         </header>
 
-        <div class="year-tabs" role="tablist" aria-label="Challenge year">
-          {{TABS}}
+        <!-- Hidden until cinema.js runs: without it there is nothing to switch. -->
+        <div class="year-modes" role="group" aria-label="Years run" hidden>
+          <button
+            type="button"
+            class="year-mode"
+            data-set-mode="challenge"
+            aria-pressed="true"
+          >
+            Aug–Aug
+          </button>
+          <button
+            type="button"
+            class="year-mode"
+            data-set-mode="calendar"
+            aria-pressed="false"
+          >
+            Jan–Dec
+          </button>
         </div>
+
+        <div class="year-tabs" role="tablist" aria-label="Year">{{TABS}}</div>
         {{YEARS}}
 
         <footer class="cinema-footer">

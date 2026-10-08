@@ -4,12 +4,13 @@
 // The page is generated ahead of Parcel rather than fetched in the browser:
 // the whole point of a static site is that the timeline is in the HTML, so it
 // reads without JavaScript and search engines can see it. The only script on
-// the page switches between challenge years.
+// the page switches between years, and between challenge and calendar years.
 
 import { mkdir, writeFile, readFile } from "node:fs/promises";
 import {
   readDiary,
   challengeYears,
+  calendarYears,
   paceFor,
   CHALLENGE_TARGET,
   CHALLENGE_START,
@@ -206,18 +207,23 @@ function describeVenues(year, firstVisit) {
   return `${cinemas} · ${firsts}`;
 }
 
-function renderYear(year, venues, today, firstVisit) {
+// `shown` is whether the panel is visible before any script runs: only the
+// current challenge year is, since that is what the page is about.
+function renderYear(year, venues, today, firstVisit, shown) {
   const count = year.entries.length;
   const venueSummary = describeVenues(year, firstVisit);
   const pace = paceFor(year, today);
 
   // A finished year states its total; the year in progress states where it is
   // against a 52-a-year pace, which is the only number that can still change.
-  const standing = year.current
-    ? `Week ${pace.week} · ${count === 0 ? "none yet" : `${count} so far`}${
-        count > 0 ? ` · ${describePace(count - pace.expected)}` : ""
-      }`
-    : `${count >= CHALLENGE_TARGET ? "Challenge met" : `${CHALLENGE_TARGET - count} short`}`;
+  // A partial calendar year started part-way through, so it gets neither.
+  const standing = year.partial
+    ? `Partial year · from ${formatDay(CHALLENGE_START)}`
+    : year.current
+      ? `Week ${pace.week} · ${count === 0 ? "none yet" : `${count} so far`}${
+          count > 0 ? ` · ${describePace(count - pace.expected)}` : ""
+        }`
+      : `${count >= CHALLENGE_TARGET ? "Challenge met" : `${CHALLENGE_TARGET - count} short`}`;
 
   const months = groupByMonth(year.entries)
     .map(
@@ -233,9 +239,9 @@ function renderYear(year, venues, today, firstVisit) {
     .join("");
 
   return `
-      <section class="panel year" id="year-${year.index}" data-panel="year-${year.index}"${year.current ? "" : " hidden"}>
+      <section class="panel year" id="${year.id}" data-panel="${year.id}"${shown ? "" : " hidden"}>
         <p class="year-standing">
-          <span class="year-count"><strong>${count}</strong> of ${CHALLENGE_TARGET}</span>
+          <span class="year-count"><strong>${count}</strong> ${year.partial ? (count === 1 ? "film" : "films") : `of ${CHALLENGE_TARGET}`}</span>
           <span class="year-note">${escape(standing)}</span>${
             venueSummary
               ? `
@@ -323,24 +329,38 @@ const venueMap = new Map(venues.map((venue) => [venue.id, venue]));
 
 const entries = diary.entries.filter((entry) => entry.date >= CHALLENGE_START);
 const years = challengeYears(entries, today);
+const calendar = calendarYears(entries, today);
 const firstVisit = firstVisits(diary.entries);
 
-function renderTab({ id, label, extra = "", selected = false }) {
+// `mode` ties a year tab to the challenge or calendar run, so the switch can
+// show one run's tabs at a time; the cinemas tab has none and is always shown.
+// Calendar tabs start hidden, so without the script the page is unchanged.
+function renderTab({ id, label, extra = "", selected = false, mode, current }) {
   return `
-          <button type="button" class="year-tab${selected ? " is-selected" : ""}" role="tab" aria-selected="${selected}" aria-controls="${id}" data-panel="${id}">
+          <button type="button" class="year-tab${selected ? " is-selected" : ""}" role="tab" aria-selected="${selected}" aria-controls="${id}" data-panel="${id}"${
+            mode ? ` data-mode="${mode}"` : ""
+          }${current ? " data-current" : ""}${mode === "calendar" ? " hidden" : ""}>
             ${escape(label)}${extra}
           </button>`;
 }
 
+const yearTab = (mode) => (year) =>
+  renderTab({
+    id: year.id,
+    label: year.label,
+    extra: year.current
+      ? '<span class="year-tab-tag">now</span>'
+      : year.partial
+        ? '<span class="year-tab-tag">partial</span>'
+        : "",
+    selected: mode === "challenge" && year.current,
+    mode,
+    current: year.current,
+  });
+
 const tabs = [
-  ...years.map((year) =>
-    renderTab({
-      id: `year-${year.index}`,
-      label: year.label,
-      extra: year.current ? '<span class="year-tab-now">now</span>' : "",
-      selected: year.current,
-    }),
-  ),
+  ...years.map(yearTab("challenge")),
+  ...calendar.map(yearTab("calendar")),
   // The cinemas are all-time rather than per-year, so this reads as a
   // different kind of view rather than one more year in the run.
   renderTab({ id: "cinemas", label: "Cinemas" }),
@@ -351,9 +371,14 @@ const html = (await readFile(TEMPLATE, "utf8"))
   .replace("{{TABS}}", tabs)
   .replace(
     "{{YEARS}}",
-    years
-      .map((year) => renderYear(year, venueMap, today, firstVisit))
-      .join("") + renderCinemas(entries, venues),
+    [
+      ...years.map((year) =>
+        renderYear(year, venueMap, today, firstVisit, year.current),
+      ),
+      ...calendar.map((year) =>
+        renderYear(year, venueMap, today, firstVisit, false),
+      ),
+    ].join("") + renderCinemas(entries, venues),
   )
   .replace(/{{TOTAL}}/g, String(total))
   .replace(/{{UPDATED}}/g, escape(diary.updated ?? today));
