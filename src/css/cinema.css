@@ -39,6 +39,12 @@ body.cinema div.wrapper {
   width: auto;
 }
 
+.cinema div.year-modes {
+  margin: 0 auto 1.2em;
+  padding-top: 0;
+  width: fit-content;
+}
+
 .cinema-content {
   text-align: left;
 }
@@ -115,7 +121,7 @@ body.cinema div.wrapper {
   }
 }
 
-.year-tab-now {
+.year-tab-tag {
   display: inline-block;
   margin-left: 0.5em;
   font-size: 0.7em;
@@ -126,6 +132,55 @@ body.cinema div.wrapper {
 
 .year-tab:focus-visible,
 .film-link:focus-visible {
+  outline: 2px solid #319edb;
+  outline-offset: 3px;
+}
+
+/* Challenge or calendar years: a quieter control than the tabs, since it
+ * changes how the run is cut rather than which year is in view. */
+.year-modes {
+  display: flex;
+  justify-content: center;
+}
+
+.year-mode {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #b9b9c6;
+  background: transparent;
+  border: 1px solid rgba(185, 185, 198, 0.35);
+  padding: 0.3em 0.9em;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.year-mode:first-child {
+  border-radius: 2em 0 0 2em;
+}
+
+.year-mode:last-child {
+  border-left: none;
+  border-radius: 0 2em 2em 0;
+}
+
+.year-mode:hover {
+  color: #fade05;
+}
+
+.year-mode[aria-pressed="true"] {
+  color: #fade05;
+  border-color: rgba(250, 222, 5, 0.6);
+}
+
+.year-mode:last-child[aria-pressed="true"] {
+  box-shadow: -1px 0 0 rgba(250, 222, 5, 0.6);
+}
+
+.year-mode:focus-visible {
   outline: 2px solid #319edb;
   outline-offset: 3px;
 }

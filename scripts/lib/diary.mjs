@@ -108,11 +108,40 @@ export function challengeYears(entries, today) {
     const start = addYears(CHALLENGE_START, index);
     const end = addYears(CHALLENGE_START, index + 1);
     years.push({
+      id: `year-${index}`,
       index,
       start,
       end,
       label: `${start.slice(0, 4)}–${end.slice(2, 4)}`,
       current: index === currentIndex,
+      entries: entries.filter(
+        (entry) => entry.date >= start && entry.date < end,
+      ),
+    });
+  }
+
+  return years.reverse();
+}
+
+// The same diary cut at 1 January instead, for anyone who thinks in calendar
+// years. The first one began before the challenge did, so it holds only the
+// months from 27 August and is marked partial: it has nothing to say about
+// reaching 52.
+export function calendarYears(entries, today) {
+  const first = Number(CHALLENGE_START.slice(0, 4));
+  const current = Number(today.slice(0, 4));
+  const years = [];
+
+  for (let year = first; year <= Math.max(current, first); year += 1) {
+    const start = `${year}-01-01`;
+    const end = `${year + 1}-01-01`;
+    years.push({
+      id: `cal-${year}`,
+      start,
+      end,
+      label: String(year),
+      current: year === current,
+      partial: start < CHALLENGE_START,
       entries: entries.filter(
         (entry) => entry.date >= start && entry.date < end,
       ),

@@ -33,6 +33,12 @@ same day at the same cinema are grouped into one double-width card with their
 posters fanned together, so double bills, marathons and festival days read as
 one outing.
 
+A switch above the tabs re-cuts the same films by calendar year instead. 2024
+is marked partial, since it only holds the months from 27 August, and has no
+challenge verdict. The choice is remembered in `localStorage`, and a deep link
+to a year (`#year-1`, `#cal-2025`) brings its run of tabs with it. Without
+JavaScript the switch is hidden and the page shows challenge years only.
+
 ### Where the data comes from
 
 Letterboxd puts a Cloudflare JS challenge in front of the diary and every
