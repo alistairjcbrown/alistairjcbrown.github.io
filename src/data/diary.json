@@ -1,6 +1,20 @@
 {
   "entries": [
     {
+      "letterboxdId": "letterboxd-watch-1538290184",
+      "date": "2026-10-14",
+      "title": "Alien³",
+      "year": 1992,
+      "slug": "alien-3",
+      "uri": "https://letterboxd.com/alistairjcbrown/film/alien-3/",
+      "rating": 3,
+      "rewatch": false,
+      "liked": false,
+      "tmdbId": 8077,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/4/7/8/8/8/47888-alien-0-600-0-900-crop.jpg?v=8b2645e0e9",
+      "venue": "dalston-superstore"
+    },
+    {
       "letterboxdId": "letterboxd-review-1533499335",
       "date": "2026-10-11",
       "title": "Digger",
@@ -1647,5 +1661,5 @@
       "venue": "hackney-picturehouse"
     }
   ],
-  "updated": "2026-10-11"
+  "updated": "2026-10-15"
 }

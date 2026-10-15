@@ -54,6 +54,11 @@
       "site": "https://www.curzon.com/venues/hoxton/"
     },
     {
+      "id": "dalston-superstore",
+      "name": "Dalston Superstore",
+      "site": "https://dalstonsuperstore.com/whats-on/"
+    },
+    {
       "id": "everyman-broadgate",
       "name": "Everyman Broadgate",
       "clusterflick": "everyman-broadgate",
