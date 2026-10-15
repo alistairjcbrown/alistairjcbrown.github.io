@@ -94,7 +94,26 @@ existing `site` is never overwritten, so a hand-corrected link stays put.
 
 A list carries no dates, so this only ever labels a viewing the diary already
 knows about — it never decides whether something counts, and it cannot tell two
-viewings of the same film apart.
+viewings of the same film apart: every viewing of a film takes the venue of the
+list it is in.
+
+When the same film has been seen at two cinemas, leave it in the list for one of
+them and pin the other viewing by hand. Once that viewing has arrived in
+`src/data/diary.json`, add `"pinnedVenue"` to its entry with the venue's `id`
+from `src/data/venues.json`:
+
+```json
+{
+  "date": "2026-10-17",
+  "title": "The Odyssey",
+  "pinnedVenue": "science-museum"
+}
+```
+
+A pin beats the lists, and the feed and re-imports never remove it. The venue
+still needs to be in the registry, so give it a Letterboxd list of its own for
+it to be picked up; a pin to an unknown `id` is warned about on the next
+`fetch-diary`.
 
 The **Cinemas** tab lists every venue visited, most-visited first. It is
 all-time rather than per-year, which is why it sits apart from the run of year

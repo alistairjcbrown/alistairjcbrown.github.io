@@ -96,6 +96,12 @@ export async function syncVenueRegistry(discovered) {
 // Attaches a `venue` id to each entry whose film appears in a venue list. Never
 // removes one: a list since tidied should not silently strip the venue off an
 // old screening.
+//
+// An entry can carry a hand-set `pinnedVenue`, which wins over the lists. That
+// is the way out of the per-film limit above: a film seen at two cinemas sits
+// in one list, and the other viewing is pinned to where it actually happened.
+// The pin lives on the entry, so a later run of the feed or a re-import, which
+// only ever adds fields, leaves it in place.
 export async function attachVenues(entries, discovered) {
   const registry = await syncVenueRegistry(discovered ?? []);
   const { venues } = registry;
@@ -129,7 +135,20 @@ export async function attachVenues(entries, discovered) {
 
   if (learned > 0) await writeVenues(registry);
 
+  const known = new Set(venues.map((venue) => venue.id));
+
   return entries.map((entry) => {
+    if (entry.pinnedVenue) {
+      // A pin naming no registered venue renders as no venue at all, so say so
+      // rather than let a typo quietly drop the label.
+      if (!known.has(entry.pinnedVenue)) {
+        console.warn(
+          `  ! ${entry.title} (${entry.date}) is pinned to unknown venue ${entry.pinnedVenue}`,
+        );
+      }
+      return { ...entry, venue: entry.pinnedVenue };
+    }
+
     const venue = byFilm.get(entry.slug);
     return venue ? { ...entry, venue } : entry;
   });
