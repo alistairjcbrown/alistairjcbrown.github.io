@@ -1,6 +1,20 @@
 {
   "entries": [
     {
+      "letterboxdId": "letterboxd-watch-1542572176",
+      "date": "2026-10-17",
+      "title": "The Odyssey",
+      "year": 2026,
+      "slug": "the-odyssey-2026",
+      "uri": "https://letterboxd.com/alistairjcbrown/film/the-odyssey-2026/1/",
+      "rating": 5,
+      "rewatch": true,
+      "liked": false,
+      "tmdbId": 1368337,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/1/2/5/5/3/9/4/1255394-the-odyssey-2026-0-600-0-900-crop.jpg?v=1eed046d0c",
+      "venue": "cineworld-leicester-square"
+    },
+    {
       "letterboxdId": "letterboxd-watch-1540994937",
       "date": "2026-10-16",
       "title": "NAZA",

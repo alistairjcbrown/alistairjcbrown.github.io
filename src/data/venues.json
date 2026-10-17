@@ -138,6 +138,11 @@
       "site": "https://rooftopfilmclub.com/london/venue/stratford/"
     },
     {
+      "id": "science-museum",
+      "name": "Science Museum",
+      "site": "https://www.sciencemuseum.org.uk/see-and-do"
+    },
+    {
       "id": "subtitle-cinema",
       "name": "Subtitle Cinema",
       "clusterflick": "subtitle-cinema",
