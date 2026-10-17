@@ -1,6 +1,20 @@
 {
   "entries": [
     {
+      "letterboxdId": "letterboxd-watch-1540994937",
+      "date": "2026-10-16",
+      "title": "NAZA",
+      "year": 2026,
+      "slug": "naza",
+      "uri": "https://letterboxd.com/alistairjcbrown/film/naza/",
+      "rating": 4,
+      "rewatch": false,
+      "liked": false,
+      "tmdbId": 1755291,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/1/6/2/0/2/0/6/1620206-naza-0-600-0-900-crop.jpg?v=c34667d5c5",
+      "venue": "curzon-hoxton"
+    },
+    {
       "letterboxdId": "letterboxd-watch-1538290184",
       "date": "2026-10-14",
       "title": "Alien³",
@@ -1661,5 +1675,5 @@
       "venue": "hackney-picturehouse"
     }
   ],
-  "updated": "2026-10-15"
+  "updated": "2026-10-17"
 }
