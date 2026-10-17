@@ -140,6 +140,7 @@
     {
       "id": "science-museum",
       "name": "Science Museum",
+      "clusterflick": "science-museum",
       "site": "https://www.sciencemuseum.org.uk/see-and-do"
     },
     {
