@@ -1,6 +1,20 @@
 {
   "entries": [
     {
+      "letterboxdId": "letterboxd-watch-1549629615",
+      "date": "2026-10-22",
+      "title": "Cube",
+      "year": 1997,
+      "slug": "cube",
+      "uri": "https://letterboxd.com/alistairjcbrown/film/cube/",
+      "rating": 3,
+      "rewatch": false,
+      "liked": false,
+      "tmdbId": 431,
+      "poster": "https://a.ltrbxd.com/resized/sm/upload/op/7o/t7/az/u50r6chJGO2iqxVAvtQ07obiCkB-0-600-0-900-crop.jpg?v=e7e1cf5ff1",
+      "venue": "prince-charles-cinema"
+    },
+    {
       "letterboxdId": "letterboxd-watch-1548657007",
       "date": "2026-10-21",
       "title": "Destroy All Monsters",
