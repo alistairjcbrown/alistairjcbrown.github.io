@@ -1,6 +1,20 @@
 {
   "entries": [
     {
+      "letterboxdId": "letterboxd-watch-1572434926",
+      "date": "2026-11-04",
+      "title": "The Devils",
+      "year": 1971,
+      "slug": "the-devils",
+      "uri": "https://letterboxd.com/alistairjcbrown/film/the-devils/",
+      "rating": 4,
+      "rewatch": false,
+      "liked": false,
+      "tmdbId": 31767,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/3/0/8/9/9/30899-the-devils-0-600-0-900-crop.jpg?v=368cfcdfad",
+      "venue": "curzon-hoxton"
+    },
+    {
       "letterboxdId": "letterboxd-watch-1558632842",
       "date": "2026-10-27",
       "title": "Lake Mungo",
@@ -1732,5 +1746,5 @@
       "venue": "hackney-picturehouse"
     }
   ],
-  "updated": "2026-10-28"
+  "updated": "2026-11-05"
 }
