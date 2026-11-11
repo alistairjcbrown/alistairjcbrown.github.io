@@ -1,6 +1,19 @@
 {
   "entries": [
     {
+      "letterboxdId": "letterboxd-watch-1581136738",
+      "date": "2026-11-10",
+      "title": "The Crow",
+      "year": 1994,
+      "slug": "the-crow",
+      "uri": "https://letterboxd.com/alistairjcbrown/film/the-crow/",
+      "rating": 3,
+      "rewatch": false,
+      "liked": false,
+      "tmdbId": 9495,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/4/7/1/0/4/47104-the-crow-0-600-0-900-crop.jpg?v=ee1947baad"
+    },
+    {
       "letterboxdId": "letterboxd-watch-1572434926",
       "date": "2026-11-04",
       "title": "The Devils",
@@ -1746,5 +1759,5 @@
       "venue": "hackney-picturehouse"
     }
   ],
-  "updated": "2026-11-05"
+  "updated": "2026-11-11"
 }
