@@ -11,7 +11,8 @@
       "rewatch": false,
       "liked": false,
       "tmdbId": 9495,
-      "poster": "https://a.ltrbxd.com/resized/film-poster/4/7/1/0/4/47104-the-crow-0-600-0-900-crop.jpg?v=ee1947baad"
+      "poster": "https://a.ltrbxd.com/resized/film-poster/4/7/1/0/4/47104-the-crow-0-600-0-900-crop.jpg?v=ee1947baad",
+      "venue": "genesis-cinema"
     },
     {
       "letterboxdId": "letterboxd-watch-1572434926",
@@ -1759,5 +1760,5 @@
       "venue": "hackney-picturehouse"
     }
   ],
-  "updated": "2026-11-11"
+  "updated": "2026-11-12"
 }

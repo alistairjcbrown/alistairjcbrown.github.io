@@ -10,7 +10,8 @@
     {
       "id": "beer-merchants-tap",
       "name": "Beer Merchants Tap",
-      "clusterflick": "beer-merchants-tap"
+      "clusterflick": "beer-merchants-tap",
+      "site": "https://beermerchantstap.com/events/"
     },
     {
       "id": "bfi-imax",
@@ -39,7 +40,8 @@
     {
       "id": "coldharbour-blue",
       "name": "Coldharbour Blue",
-      "clusterflick": "coldharbour-blue"
+      "clusterflick": "coldharbour-blue",
+      "site": "https://www.coldharbourblue.com/events"
     },
     {
       "id": "curzon-bloomsbury",
