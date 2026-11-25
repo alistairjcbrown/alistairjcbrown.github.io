@@ -1,6 +1,20 @@
 {
   "entries": [
     {
+      "letterboxdId": "letterboxd-watch-1602714117",
+      "date": "2026-11-25",
+      "title": "Secretary",
+      "year": 2002,
+      "slug": "secretary",
+      "uri": "https://letterboxd.com/alistairjcbrown/film/secretary/",
+      "rating": 4,
+      "rewatch": false,
+      "liked": false,
+      "tmdbId": 11013,
+      "poster": "https://a.ltrbxd.com/resized/sm/upload/14/7l/a1/b6/dZaTYgy6sc6Z8ylaKdXw8yq5sRv-0-600-0-900-crop.jpg?v=59a0235b75",
+      "venue": "rhizomatic"
+    },
+    {
       "letterboxdId": "letterboxd-watch-1581136738",
       "date": "2026-11-10",
       "title": "The Crow",
@@ -1760,5 +1774,5 @@
       "venue": "hackney-picturehouse"
     }
   ],
-  "updated": "2026-11-12"
+  "updated": "2026-11-25"
 }
