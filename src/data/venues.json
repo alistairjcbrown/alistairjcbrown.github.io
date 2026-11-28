@@ -26,6 +26,11 @@
       "site": "https://whatson.bfi.org.uk/Online/default.asp"
     },
     {
+      "id": "cine-real",
+      "name": "Ciné-Real",
+      "site": "https://www.cine-real.com/"
+    },
+    {
       "id": "cineworld-leicester-square",
       "name": "Cineworld Leicester Square",
       "clusterflick": "cineworld-leicester-square",
