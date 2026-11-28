@@ -28,6 +28,7 @@
     {
       "id": "cine-real",
       "name": "Ciné-Real",
+      "clusterflick": "cine-real",
       "site": "https://www.cine-real.com/"
     },
     {
